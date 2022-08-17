@@ -17,8 +17,17 @@
 	<h4>MEMBER</h4>
 	<a href="./member/login.iu">로그인</a>
 	<a href="./member/join.iu">회원가입</a>
+	<a href="./member/search.iu">ID찾기</a>
+</div>
+
+
+<div>
+	<h4>BANKBOOK</h4>
+	<a href="./bankbook/list.iu">상품 List</a>
 
 </div>
+
+
 
 </body>
 </html>
