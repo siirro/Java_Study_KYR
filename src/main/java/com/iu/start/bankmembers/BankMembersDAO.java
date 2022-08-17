@@ -18,14 +18,13 @@ public class BankMembersDAO {
 		return sqlSession.selectOne(NAMESPACE+"getLogin", bankMembersDTO);
 	}
 	
-	public int setJoin(String search)throws Exception{
-		return sqlSession.insert(NAMESPACE+"setJoin", search);
+	public int setJoin(BankMembersDTO bankMembersDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setJoin", bankMembersDTO);
 	}
 	
 	public List<BankMembersDTO> getSearchByID(String search)throws Exception{
 		//return sqlSession.selectList(NAMESPACE+"getSearchByID", search);
 		sqlSession.selectList(NAMESPACE+"getSearchByID", search);
-		System.out.println(search);
 		return sqlSession.selectList(NAMESPACE+"getSearchByID", search);
 		
 	}

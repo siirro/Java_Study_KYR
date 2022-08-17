@@ -10,7 +10,7 @@
 	<h3>Search Page</h3>
 
 	<form action="search.iu" method="post">
-	ID <input type="text">
+	ID <input type="text" name="search">
 	<input type="submit">
 	</form>
 </body>

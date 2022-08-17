@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    
+
+<!--namespace의 값은 사용할 DAO의 풀패키지명 -->	
     
 <mapper namespace="com.iu.start.bankmembers.BankMembersDAO">
 
@@ -14,7 +17,7 @@ INSERT INTO BANKMEMBERS VALUES(#{userName},#{password},#{name},#{email},#{phone}
 </insert>
 
 <select id="getSearchByID" parameterType="java.lang.String" resultType="com.iu.start.bankmembers.BankMembersDTO">
-SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{userName}||'%' ORDER BY USERNAME ASC
+SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC
 </select>
 
 </mapper>

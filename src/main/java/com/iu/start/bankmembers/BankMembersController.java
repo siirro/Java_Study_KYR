@@ -2,6 +2,9 @@ package com.iu.start.bankmembers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,25 +20,35 @@ public class BankMembersController {
 	
 	@RequestMapping(value="login.iu", method=RequestMethod.GET)
 	public void login() throws Exception{
-		System.out.println("로그인 get실행");
 	}
 	
 	@RequestMapping(value="login.iu", method=RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO) throws Exception{
+	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception{
 		System.out.println("로그인 post실행");
 		bankMembersService.getLogin(bankMembersDTO);
+		HttpSession session = request.getSession();
+		session.setAttribute("member", bankMembersDTO);
+		
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value="logout.iu", method=RequestMethod.GET)
+	public String logout(HttpSession session)throws Exception{
+		session.invalidate();
 		
 		return "redirect:../";
 	}
 	
 	@RequestMapping(value="join.iu", method=RequestMethod.GET)
 	public void join() throws Exception{
-		System.out.println("회원가입 get실행");
 	}
 	
 	@RequestMapping(value="join.iu", method=RequestMethod.POST)
-	public void join(BankMembersDTO bankMembersDTO) throws Exception{
+	public String join(BankMembersDTO bankMembersDTO) throws Exception{
 		System.out.println("회원가입 post실행");
+		bankMembersService.setJoin(bankMembersDTO);
+		
+		return "redirect:./login.iu";
 	}
 	
 	@RequestMapping(value="search.iu", method=RequestMethod.GET)
@@ -45,10 +58,10 @@ public class BankMembersController {
 	@RequestMapping(value="search.iu", method=RequestMethod.POST)
 	public String  search(String search, Model model) throws Exception{
 		System.out.println("search post실행");
-		
+		System.out.println(search);
 		List<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
 		model.addAttribute("list", ar);
-		return "list";
+		return "member/list";
 		
 	}
 

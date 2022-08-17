@@ -10,8 +10,8 @@
 <h3>Login Page</h3>
 
 <form action="login.iu", method="post">
-ID <input type="text" name="userName"><br>
-PW <input type="text" name="password">
+ID <input type="text" value="NAME1" name="userName"><br>
+PW <input type="text" value="PW1" name="password">
 <input type="submit">
 </form>
 
