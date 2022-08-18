@@ -24,12 +24,8 @@ public class BankAccountController {
 	public ModelAndView add(BankAccountDTO bankAccountDTO) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		
 		int result = bankAccountService.add(bankAccountDTO);
-		
-		mv.setViewName("redirect:./list.do");
+		mv.setViewName("redirect:./list.iu");
 		return mv;
-		
-		
 	}
 }

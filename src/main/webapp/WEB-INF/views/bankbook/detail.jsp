@@ -9,24 +9,25 @@
 </head>
 <body>
 	<h1>BankBook Detail</h1>
-	<a href="./list.iu">상품 보기</a>
+	<a href="./list.iu">상품목록</a>
 	
 	<!-- /bankbook/detail -->
 	<!-- link 주소는 상대경로 작 -->
 	
 	<!-- 상대경로 -->
-	<c:if test="${empty sessionScope.member}">
-		<a href="/member/login.iu">Join</a>
-		<a href="./update.iu?bookNum=${detail.bookNum}">수정</a>
-		<a href="delete.iu?bookNum=${detail.bookNum}">삭제</a>
-		</c:if>
-		
+	
+	
+	<a href="./update.iu?bookNum=${detail.bookNum}">수정</a>
+	<a href="delete.iu?bookNum=${detail.bookNum}">삭제</a>
+
 	<c:if test="${not empty sessionScope.member}">
-		<a href="/member/login.iu">Join</a>
-		<a href="./update.iu?bookNum=${detail.bookNum}">수정</a>
-		<a href="delete.iu?bookNum=${detail.bookNum}">삭제</a>
-		<a href="../bankAccount/add.iu?bookNum=${detail.bookNum}">가입하기</a>
-		 </c:if>
+		<a href="../bankAccount/add.iu?bookNum=${detail.bookNum}">통장개설</a>
+	</c:if>
+	
+		<c:if test="${empty sessionScope.member}">
+		<a href="/member/login.iu">Login</a>
+		<a href="/member/join.iu">Join</a>
+	</c:if>
 	
 	
 <table border="1">
@@ -40,6 +41,7 @@
 			<td>${detail.bookNum}</td>
 			<td>${detail.bookName}</td>
 			<td>${detail.bookRate}</td>
+			<td>${detail.bookSale}</td>
 		</tr>
 	</tbody>
 </table>
