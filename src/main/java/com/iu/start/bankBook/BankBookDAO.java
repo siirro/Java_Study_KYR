@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,6 +20,8 @@ public class BankBookDAO implements BookDAO{
 	private final String NAMESPACE = "com.iu.start.bankBook.BankBookDAO.";
 
 	public int setBankbook(BankBookDTO bankBookDTO) throws Exception {
+		Calendar ca = Calendar.getInstance();
+		bankBookDTO.setBookNum(ca.getTimeInMillis());
 		return sqlSession.insert(NAMESPACE+"setBankbook", bankBookDTO);
 	}
 
