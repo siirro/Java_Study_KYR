@@ -10,7 +10,7 @@
 <body>
 	<h1>BankBook List</h1>
 	<!-- /bankbook/list -->
-	<a href="./add.do">상품등록</a>
+	<a href="./add.iu">상품등록</a>
 	
 	<table border="1">
 		<thead>
