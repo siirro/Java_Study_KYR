@@ -4,40 +4,46 @@
 <html>
 <head>
 	<title>Home</title>
+	<link rel="stylesheet" href="./resources/css/test.css">
+	<style>
+		li {
+			color: blue;
+		}
+
+	</style>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-<h3>add vscode</h3>
-<h3>spring</h3>
 
-<P>  The time on the server is ${serverTime}. </P>
+	<!--nav-->
+	<!--Group-->
+	<div>
+		<ul>
+			<li><a href="/bankbook/list.iu">상품리스트</a></li>
+			<li><a href="/board/list.iu">게시판</a></li>
+			<li><a href="/member/login.iu">로그인</a></li>
+			<li><a href="/member/join.iu">회원가입</a></li>
+		</ul>
+	</div>
 
-<div>
-	<h4>MEMBER</h4>
-<c:if test="${empty sessionScope.member}">
-	<a href="./member/login.iu">로그인</a>
-	<a href="./member/join.iu">회원가입</a>
-</c:if>	
-	
-<c:if test="${not empty sessionScope.member}">
-	<h3>★${sessionScope.member.userName}님 환영합니다★</h3>
-	<a href="./member/logout.iu">로그아웃</a>
-	<a href="#">내 정보</a>
-</c:if>
-
-	<a href="./member/search.iu">ID찾기</a>
-</div>
+	<img src="./resources/images/jssdf.jpg" alt="이미지1">
+	<img src="./img/jssdf.jpg" alt="이미지">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/SPwmsflmL_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<div>
-	<h4>BANKBOOK</h4>
-	<a href="./bankbook/list.iu">상품 List</a>
+	<h1>Index page</h1>
+	<!--순서가 있는 List-->
+	<ol>
+		<li style="color:red;">First</li>
+		<li>Second</li>
+		<li>Third</li>
+	</ol>
 
-</div>
-
-
+	<!--순서가 없는 List-->
+	<ul>
+		<li>SKT</li>
+		<li>KT</li>
+		<li>LGT</li>
+	</ul>
 
 </body>
 </html>

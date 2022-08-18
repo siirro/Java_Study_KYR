@@ -7,6 +7,15 @@
 <title>로그인을 하세요</title>
 </head>
 <body>
+	<div>
+		<ul>
+			<li><a href="/bankbook/list.iu">상품리스트</a></li>
+			<li><a href="/board/list.iu">게시판</a></li>
+			<li><a href="/member/login.iu">로그인</a></li>
+			<li><a href="/member/join.iu">회원가입</a></li>
+		</ul>
+	</div>
+
 <h3>Login Page</h3>
 
 <form action="login.iu", method="post">
