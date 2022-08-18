@@ -1,4 +1,4 @@
-package bankAccount;
+package com.iu.start.bankAccount;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
