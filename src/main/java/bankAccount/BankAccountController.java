@@ -14,13 +14,13 @@ public class BankAccountController {
 	@Autowired
 	private BankAccountService bankAccountService;
 	
-	@RequestMapping(value = "add", method = RequestMethod.GET)
+	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
 	public String add() {
 		return "bankAccount/add";
 	
 	}
 	
-	@RequestMapping(value = "add", method = RequestMethod.POST)
+	@RequestMapping(value = "add.iu", method = RequestMethod.POST)
 	public ModelAndView add(BankAccountDTO bankAccountDTO) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();

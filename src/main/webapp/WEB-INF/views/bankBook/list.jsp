@@ -23,7 +23,7 @@
 				<c:forEach items="${requestScope.list}" var="dto">
 				
 				<tr>
-					<td><a href ="detail.do?bookNum=${dto.bookNum}">${dto.bookName}</a></td>
+					<td><a href ="detail.iu?bookNum=${dto.bookNum}">${dto.bookName}</a></td>
 					<td>${dto.bookRate}</td>
 				</tr>
 			

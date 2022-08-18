@@ -11,8 +11,7 @@ public class BankAccountDAO {
 	private final String NAMESPACE = "com.iu.start.bankAccount.BankAccountDAO.";
 	
 	public int add(BankAccountDTO bankAccountDTO) throws Exception{
-		return sqlSession.insert(NAMESPACE+"add", bankAccountDTO);
-		
+		return sqlSession.insert(NAMESPACE+"add", bankAccountDTO);	
 	}
 
 }

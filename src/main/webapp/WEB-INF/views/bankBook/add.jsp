@@ -10,7 +10,7 @@
 <body>
 		<h1>상품 등록</h1>
 		
-		<form action="add.do" method="post">
+		<form action="add.iu" method="post">
 		
 			<div>
 				통장의 이름을 입력하세요<br><input type="text" name="bookName"><br>

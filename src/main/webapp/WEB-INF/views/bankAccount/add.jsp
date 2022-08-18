@@ -10,6 +10,8 @@
 	<body>
 		<h1>bankAccount</h1>
 		
-		
+			<div>
+				<input type="submit" value="등록" name="상품등록">
+			</div>
 	</body>
 </html>

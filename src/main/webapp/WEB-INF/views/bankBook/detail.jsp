@@ -10,23 +10,23 @@
 </head>
 <body>
 	<h1>BankBook Detail</h1>
-	<a href="./list.do">상품 보기</a>
+	<a href="./list.iu">상품 보기</a>
 	
 	<!-- /bankbook/detail -->
 	<!-- link 주소는 상대경로 작 -->
 	
 	<!-- 상대경로 -->
 	<c:if test="${empty sessionScope.member}">
-		<a href="/member/login.do">Join</a>
-		<a href="./update.do?bookNum=${detail.bookNum}">수정</a>
-		<a href="delete.do?bookNum=${detail.bookNum}">삭제</a>
+		<a href="/member/login.iu">Join</a>
+		<a href="./update.iu?bookNum=${detail.bookNum}">수정</a>
+		<a href="delete.iu?bookNum=${detail.bookNum}">삭제</a>
 		</c:if>
 		
 	<c:if test="${not empty sessionScope.member}">
-		<a href="/member/login.do">Join</a>
-		<a href="./update.do?bookNum=${detail.bookNum}">수정</a>
-		<a href="delete.do?bookNum=${detail.bookNum}">삭제</a>
-		<a href="../bankAccount/add.do?bookNum=${detail.bookNum}">가입하기</a>
+		<a href="/member/login.iu">Join</a>
+		<a href="./update.iu?bookNum=${detail.bookNum}">수정</a>
+		<a href="delete.iu?bookNum=${detail.bookNum}">삭제</a>
+		<a href="../bankAccount/add.iu?bookNum=${detail.bookNum}">가입하기</a>
 		 </c:if>
 	
 	

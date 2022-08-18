@@ -17,7 +17,7 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
-	@RequestMapping(value = "list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "list.iu", method = RequestMethod.GET)
 	public String list(Model model) throws Exception {
 		System.out.println("list실행");
 		List<BankBookDTO> ar =bankBookService.getList();
@@ -25,7 +25,7 @@ public class BankBookController {
 		return "bankbook/list";
 	}
 	
-	@RequestMapping(value = "detail.do", method = RequestMethod.GET)
+	@RequestMapping(value = "detail.iu", method = RequestMethod.GET)
 	public ModelAndView detail(BankBookDTO bankBookDTO)throws Exception{
  		ModelAndView modelAndView = new ModelAndView();//model+view
 		System.out.println("detail실행");
@@ -37,13 +37,13 @@ public class BankBookController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "add.do", method = RequestMethod.GET)
+	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
 	public String add() throws Exception {
 		System.out.println("add실행");
 		return "bankbook/add";//jsp경로명
 	}
 	
-	@RequestMapping(value = "add.do", method = RequestMethod.POST)
+	@RequestMapping(value = "add.iu", method = RequestMethod.POST)
 	public ModelAndView add(BankBookDTO bankBookDTO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
@@ -61,7 +61,7 @@ public class BankBookController {
 		
 //		return "ban/add";
 	}
-	@RequestMapping(value = "update.do", method = RequestMethod.GET)
+	@RequestMapping(value = "update.iu", method = RequestMethod.GET)
 	public void update(BankBookDTO bankBookDTO, Model model) throws Exception{
 		System.out.println("업데이트 실행");
 		System.out.println(bankBookDTO.getBookNum());
@@ -79,10 +79,10 @@ public class BankBookController {
 			System.out.println("실패");
 		}
 		
-		mv.setViewName("redirect:./detail.do?bookNum="+bankBookDTO.getBookNum());
+		mv.setViewName("redirect:./detail.iu?bookNum="+bankBookDTO.getBookNum());
 		return mv;	
 	}
-	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	@RequestMapping(value = "delete.iu", method = RequestMethod.GET)
 	public ModelAndView delete(BankBookDTO bankBookDTO)throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("delete실행");
