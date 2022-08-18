@@ -94,7 +94,7 @@ public class BankBookController {
 			System.out.println("실패");
 			
 		}
-		mv.setViewName("redirect:./list.do");
+		mv.setViewName("redirect:./list.iu");
 		return mv;
 	}
 }
