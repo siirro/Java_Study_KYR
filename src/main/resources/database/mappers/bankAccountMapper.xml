@@ -6,7 +6,7 @@
 <mapper namespace="com.iu.start.bankAccount.BankAccountDTO">
 
 	<insert id="add" parameterType="BankAccountDTO">
-	INSERT INTO BANKACCOUNT VALUES (ACCOUNT_SEQ.NEXTVAL,#{username},#{bookNum},SYSDATE)
+	INSERT INTO BANKACCOUNT VALUES (ACCOUNT_SEQ.NEXTVAL,#{userName},#{bookNum},SYSDATE)
 	</insert>
 	
 </mapper>   
