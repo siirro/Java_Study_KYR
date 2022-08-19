@@ -3,3 +3,15 @@
 h1 {
     color: rgb(177, 53, 226);
 }
+
+/* id선택자 */
+/* #아이디명 */
+#t1 {
+    color: chocolate;
+}
+
+/* <class 선택자> */
+/* 클래스명 */
+.c1 {
+    color: brown;
+}
