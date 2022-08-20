@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface NoticeInterface {
 	
-	public List<NoticeDTO> getlist()throws Exception;
+	public List<NoticeDTO> getList()throws Exception;
 
 	public NoticeDTO getDetail(NoticeDTO noticeDTO)throws Exception;
 

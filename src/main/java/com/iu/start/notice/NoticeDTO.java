@@ -10,6 +10,7 @@ public class NoticeDTO {
 	private String writer; //로그인한 사람의 아이가 들어간다
 	private Date regDate;
 	private Integer hit;
+	
 	public Integer getNum() {
 		return num;
 	}

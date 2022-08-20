@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    
+
+<!--namespace의 값은 사용할 DAO의 풀패키지명 -->	
+    
+<mapper namespace="com.iu.start.qna.QnaDAO">
+	<select id="getList" parameterType="QnaDTO" resultType="QnaDTO">
+	SELECT * FROM QNA
+	</select>
+
+<select id="getDetail" parameterType="QnaDTO" resultType="QnaDTO">
+SELECT * FROM QNA WHERE NUM = #{num}
+</select>
+
+<insert id="addQna" parameterType="QnaDTO">
+INSERT INTO QNA VALUES(BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0,0,0,0)
+</insert>
+
+<delete id="deleteQna" parameterType="QnaDTO">
+DELETE FROM QNA WHERE NUM = #{num}
+</delete>
+
+<update id="updateQna" parameterType="QnaDTO">
+UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+</update>
+
+</mapper>

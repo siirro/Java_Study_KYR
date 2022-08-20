@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>공지사항 목록</title>
+<title>질문게시판 목록</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
 rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
@@ -15,7 +15,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 <c:import url="../template/header.jsp"></c:import>
 
 
-<h3 class="m-4">notice list</h3>
+<h3 class="m-4">QNA list</h3>
 
 <section class="col-lg-8">
 <table border="1" class="table table-striped">
@@ -30,7 +30,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 		</thead>
 		
 		<tbody>
-		<c:forEach items="${requestScope.noticeList}" var="dto">
+		<c:forEach items="${requestScope.qnaList}" var="dto">
 			<tr>
 				<td>${pageScope.dto.num}</td>
 				<td><a href="./detail.iu?num=${pageScope.dto.num}">${pageScope.dto.title}</td>

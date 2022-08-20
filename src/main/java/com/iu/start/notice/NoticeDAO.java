@@ -14,32 +14,28 @@ public class NoticeDAO implements NoticeInterface{
 	private final String NAMESPACE = "com.iu.start.notice.NoticeDAO.";
 
 	@Override
-	public List<NoticeDTO> getlist() throws Exception {
+	public List<NoticeDTO> getList() throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
 	@Override
 	public NoticeDTO getDetail(NoticeDTO noticeDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"getDetail", noticeDTO);
 	}
 
 	@Override
 	public int add(NoticeDTO noticeDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"addNotice", noticeDTO);
 	}
 
 	@Override
 	public int delete(NoticeDTO noticeDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"deleteNotice", noticeDTO);
 	}
 
 	@Override
 	public int update(NoticeDTO noticeDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"updateNotice", noticeDTO);
 	}
 	
 	

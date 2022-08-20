@@ -23,23 +23,23 @@ public class BankAccountController {
 	
 	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
 	public String add(Model model, BankBookDTO bankBookDTO) {
-		model.addAttribute("add", bankBookDTO);
+		model.addAttribute("addinfo", bankBookDTO);
 		return "bankAccount/add";
 	
 	}
 	
 	@RequestMapping(value = "add.iu", method = RequestMethod.POST)
-	public String add(String bookNum, BankAccountDTO bankAccountDTO, HttpSession Session) throws Exception {
+	public String add(BankBookDTO bankBookDTO, BankAccountDTO bankAccountDTO, HttpSession Session) throws Exception {
 		
 		BankMembersDTO bankMembersDTO = (BankMembersDTO)Session.getAttribute("member");
 		
 
 		
 		bankAccountDTO.setUsername(bankMembersDTO.getUserName());
-		bankAccountDTO.setBookNum(Long.parseLong(bookNum));
+		bankAccountDTO.setBookNum(bankBookDTO.getBookNum());
 		
 		
-		int result = bankAccountService.add(bankAccountDTO);
+		bankAccountService.add(bankAccountDTO);
 		return "redirect:../bankbook/list.iu";
 	}
 }
