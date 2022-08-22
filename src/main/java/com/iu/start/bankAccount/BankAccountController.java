@@ -21,6 +21,8 @@ public class BankAccountController {
 	@Autowired
 	private BankAccountService bankAccountService;
 	
+
+	
 	@RequestMapping(value = "add.iu", method = RequestMethod.GET)
 	public String add(Model model, BankBookDTO bankBookDTO) {
 		model.addAttribute("addinfo", bankBookDTO);
@@ -35,11 +37,12 @@ public class BankAccountController {
 		
 
 		
-		bankAccountDTO.setUsername(bankMembersDTO.getUserName());
+		bankAccountDTO.setUserName(bankMembersDTO.getUserName());
 		bankAccountDTO.setBookNum(bankBookDTO.getBookNum());
 		
 		
 		bankAccountService.add(bankAccountDTO);
+		System.out.println(bankAccountDTO.getAccountDate());
 		return "redirect:../bankbook/list.iu";
 	}
 }

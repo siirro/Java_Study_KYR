@@ -17,24 +17,35 @@ public class BankMembersDAOTest extends MyAbstractTest{
 	@Autowired
 	private BankMembersDAO bankMembersDAO;
 	
+	@Test
+	public void myPage()throws Exception{
+		BankMembersDTO bankMembersDTO = new BankMembersDTO();
+		bankMembersDTO.setUserName("NAME1");
+		bankMembersDTO=bankMembersDAO.myPage(bankMembersDTO);
+		//System.out.println(bankMembersDTO.getEmail());
+		assertNotNull(bankMembersDTO);
+	}
+
+//	@Test
+//	public void setJoinTest()throws Exception {
+//		BankMembersDTO bankMembersDTO = new BankMembersDTO();
+//		bankMembersDTO.setUserName("i54345d");
+//		bankMembersDTO.setPassword("iddd");
+//		bankMembersDTO.setName("iddd");
+//		bankMembersDTO.setEmail("iddd");
+//		bankMembersDTO.setPhone("iddd");
+//
+//		int result = bankMembersDAO.setJoin(bankMembersDTO);
+//		assertEquals(1, result);
+//		
+//		Calendar car = Calendar.getInstance();
+//		System.out.println(car.getTime());
+//	}
+	
 //	@Autowired
 //	private BankMembersDTO bankMembersDTO;
-
-	@Test
-	public void setJoinTest()throws Exception {
-		BankMembersDTO bankMembersDTO = new BankMembersDTO();
-		bankMembersDTO.setUserName("i54345d");
-		bankMembersDTO.setPassword("iddd");
-		bankMembersDTO.setName("iddd");
-		bankMembersDTO.setEmail("iddd");
-		bankMembersDTO.setPhone("iddd");
-
-		int result = bankMembersDAO.setJoin(bankMembersDTO);
-		assertEquals(1, result);
-		
-		Calendar car = Calendar.getInstance();
-		System.out.println(car.getTime());
-	}
+	
+	
 //	
 //	@Test
 //	public void getLoginTest()throws Exception {

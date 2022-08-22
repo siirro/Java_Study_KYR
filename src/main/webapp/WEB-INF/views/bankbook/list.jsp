@@ -13,7 +13,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-	<h1 class="m-3">BankBook List</h1>
+	<h3 class="m-3">BankBook List</h3>
 	<!-- /bankbook/list -->
 	<a href="./add.iu" class="m-2">상품등록</a>
 	

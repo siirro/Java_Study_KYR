@@ -11,11 +11,13 @@
   	<typeAlias type="com.iu.start.bankBook.BankBookDTO" alias="BankBookDTO"/>
   	<typeAlias type="java.lang.String" alias="String"/>
   	
-  	
-  	<typeAlias type="com.iu.start.bankBook.BankBookDTO" alias="BankBookDTO"/>
+
   	<typeAlias type="com.iu.start.bankAccount.BankAccountDTO" alias="BankAccountDTO"/>
   	<typeAlias type="com.iu.start.notice.NoticeDTO" alias="NoticeDTO"/>
   	<typeAlias type="com.iu.start.qna.QnaDTO" alias="QnaDTO"/>
+  	<typeAlias type="java.util.List" alias="List"/>
+  	
+  
   	
 </typeAliases>
 

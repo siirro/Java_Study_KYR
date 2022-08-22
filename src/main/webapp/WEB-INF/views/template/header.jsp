@@ -6,7 +6,7 @@
     <header clasee="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="../">BANK</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
             data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                		
                		<c:otherwise>
                		<a class="nav-link" href="/member/logout.iu">로그아웃</a>
-					<a class="nav-link" href="#">내 정보</a>
+					<a class="nav-link" href="/member/mypage.iu">내 정보</a>
 					<h4 style="color: white">★${sessionScope.member.userName}님 환영합니다★</h4>
 					</c:otherwise>
 				</c:choose>

@@ -1,8 +1,12 @@
 package com.iu.start.bankAccount;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.iu.start.bankmembers.BankMembersDTO;
 
 @Repository
 public class BankAccountDAO {
@@ -14,4 +18,7 @@ public class BankAccountDAO {
 		return sqlSession.insert(NAMESPACE+"add", bankAccountDTO);	
 	}
 
+	public List<BankAccountDTO> myPage2(BankMembersDTO bankMembersDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"myPage2", bankMembersDTO);
+	}
 }

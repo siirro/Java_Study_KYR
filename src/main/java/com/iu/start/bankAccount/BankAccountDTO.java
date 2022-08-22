@@ -1,24 +1,33 @@
 package com.iu.start.bankAccount;
 
-import java.util.Date;
+import java.sql.Date;
+
+import com.iu.start.bankBook.BankBookDTO;
 
 public class BankAccountDTO {
-	private Long account;
-	private String username;
+	private Long accountNum;
+	private String userName;
 	private Long bookNum;
 	private Date accountDate;
+	private BankBookDTO bankBookDTO;
 	
-	public Long getAccount() {
-		return account;
+	public BankBookDTO getBankBookDTO() {
+		return bankBookDTO;
 	}
-	public void setAccount(Long account) {
-		this.account = account;
+	public void setBankBookDTO(BankBookDTO bankBookDTO) {
+		this.bankBookDTO = bankBookDTO;
 	}
-	public String getUsername() {
-		return username;
+	public Long getAccountNum() {
+		return accountNum;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccountNum(Long accountNum) {
+		this.accountNum = accountNum;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public Long getBookNum() {
 		return bookNum;
