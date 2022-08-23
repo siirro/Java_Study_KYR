@@ -38,9 +38,9 @@
 		</dependency>
 	
 	   <dependency>
-      <groupId>com.oracle</groupId>
-      <artifactId>ojdbc10</artifactId>
-      <version>19.14.0.0</version>
+      	<groupId>com.oracle</groupId>
+      	<artifactId>ojdbc10</artifactId>
+     	 <version>19.14.0.0</version>
 	   </dependency>
 
 		<!-- Spring -->

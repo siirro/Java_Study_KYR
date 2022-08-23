@@ -6,24 +6,24 @@
 
 <!--namespace의 값은 사용할 DAO의 풀패키지명 -->	
     
-<mapper namespace="com.iu.start.qna.QnaDAO">
-	<select id="getList" parameterType="QnaDTO" resultType="QnaDTO">
+<mapper namespace="com.iu.start.board.qna.QnaDAO">
+	<select id="getList" resultType="QnaDTO">
 	SELECT * FROM QNA
 	</select>
 
-<select id="getDetail" parameterType="QnaDTO" resultType="QnaDTO">
+<select id="getDetail" parameterType="BoardDTO" resultType="QnaDTO">
 SELECT * FROM QNA WHERE NUM = #{num}
 </select>
 
-<insert id="addQna" parameterType="QnaDTO">
+<insert id="setAdd" parameterType="BoardDTO">
 INSERT INTO QNA VALUES(BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0,0,0,0)
 </insert>
 
-<delete id="deleteQna" parameterType="QnaDTO">
+<delete id="setDelete" parameterType="BoardDTO">
 DELETE FROM QNA WHERE NUM = #{num}
 </delete>
 
-<update id="updateQna" parameterType="QnaDTO">
+<update id="setUpdate" parameterType="BoardDTO">
 UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
 </update>
 

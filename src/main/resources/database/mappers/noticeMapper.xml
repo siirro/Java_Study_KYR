@@ -6,25 +6,27 @@
 
 <!--namespace의 값은 사용할 DAO의 풀패키지명 -->	
     
-<mapper namespace="com.iu.start.notice.NoticeDAO">
-	<select id="getList" parameterType="NoticeDTO" resultType="NoticeDTO">
-	SELECT * FROM NOTICE
-	</select>
+<mapper namespace="com.iu.start.board.notice.NoticeDAO">
+<select id="getList" resultType="NoticeDTO">
+SELECT NUM, TITLE, WRITER, REGDATE, HIT FROM NOTICE ORDER BY NUM DESC
+</select>
 
-<select id="getDetail" parameterType="NoticeDTO" resultType="NoticeDTO">
+<select id="getDetail" parameterType="BoardDTO" resultType="NoticeDTO">
 SELECT * FROM NOTICE WHERE NUM = #{num}
 </select>
 
-<insert id="addNotice" parameterType="NoticeDTO">
+<insert id="setAdd" parameterType="BoardDTO">
 INSERT INTO NOTICE VALUES(BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0)
 </insert>
 
-<delete id="deleteNotice" parameterType="NoticeDTO">
+<update id="setUpdate" parameterType="BoardDTO">
+UPDATE NOTICE SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+</update>
+
+<delete id="setDelete" parameterType="BoardDTO">
 DELETE FROM NOTICE WHERE NUM = #{num}
 </delete>
 
-<update id="updateNotice" parameterType="NoticeDTO">
-UPDATE NOTICE SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
-</update>
+
 
 </mapper>
