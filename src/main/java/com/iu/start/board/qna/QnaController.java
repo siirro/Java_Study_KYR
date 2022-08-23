@@ -31,7 +31,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		boardDTO = qnaService.getDetail(boardDTO);
 		
-		mv.addObject("detail", boardDTO);
+		mv.addObject("boardDTO", boardDTO);
 		mv.setViewName("qna/detail");
 		return mv;
 	}
@@ -52,7 +52,7 @@ public class QnaController {
 	@RequestMapping(value="update.iu", method=RequestMethod.GET)
 	public String setUpdate(BoardDTO boardDTO, Model model)throws Exception {
 		boardDTO = qnaService.getDetail(boardDTO);
-		model.addAttribute("qnaDTO", boardDTO);
+		model.addAttribute("boardDTO", boardDTO);
 		return "qna/update";
 	}
 	
@@ -63,6 +63,7 @@ public class QnaController {
 		return "redirect:./list.iu";
 	}
 	
+	@RequestMapping(value="delete.iu", method=RequestMethod.GET)
 	public String setDelete(BoardDTO boardDTO)throws Exception{
 		int result = qnaService.setDelete(boardDTO);
 		

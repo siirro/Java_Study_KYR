@@ -66,6 +66,7 @@ public class NoticeController {
 		return "redirect:./detail.iu?num="+boardDTO.getNum();
 	}
 	
+	@RequestMapping(value="delete.iu", method=RequestMethod.GET)
 	public String setDelete(BoardDTO boardDTO)throws Exception{
 		int result = noticeService.setDelete(boardDTO);
 		
