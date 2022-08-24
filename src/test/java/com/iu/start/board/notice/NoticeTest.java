@@ -15,14 +15,20 @@ public class NoticeTest extends MyAbstractTest{
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
+	@Test
+	public void getCountTest()throws Exception{
+		long count = noticeDAO.getCount();
+		assertEquals(102L, count);
+	}
 
 	//getList테스트 성공
-	@Test
-	public void test() throws Exception {
-		List<BoardDTO> ar = noticeDAO.getList();
-		assertNotEquals(0, ar.size());
-		
-	}
+//	@Test
+//	public void test() throws Exception {
+//		List<BoardDTO> ar = noticeDAO.getList();
+//		assertNotEquals(0, ar.size());
+//		
+//	}
 	
 	//getDetail테스트 실패..그리고 해결법(실제 디비에 있는 넘을 넣어야함) 이제 성공
 //	@Test
@@ -36,13 +42,32 @@ public class NoticeTest extends MyAbstractTest{
 //		assertNotNull(boardDTO.getTitle());
 //	}
 	
+	//setAdd테스트 - sleep
+//	@Test
+//	public void setAddTest() throws Exception {
+//	
+//		for(int i=0;i<100;i++) {
+//			BoardDTO boardDTO = new BoardDTO();
+//			boardDTO.setWriter("writer"+i);
+//			boardDTO.setTitle("title"+i);
+//			boardDTO.setContents("contents"+i);
+//			int result = noticeDAO.setAdd(boardDTO);
+//			
+//			if(i%10==0) {
+//				Thread.sleep(500);
+//			}
+//		}
+//		
+//		System.out.println("finish!!");
+//	}
+		
 	//setAdd테스트
 //	@Test
 //	public void setAddTest() throws Exception {
 //		BoardDTO boardDTO = new BoardDTO();
-//		boardDTO.setWriter("sdsf");
-//		boardDTO.setTitle("gd");
-//		boardDTO.setContents("sdfsdf");
+//		boardDTO.setWriter("writer"+i);
+//		boardDTO.setTitle("title"+i);
+//		boardDTO.setContents("contents"+i);
 //		int result = noticeDAO.setAdd(boardDTO);
 //		assertEquals(1, result);
 //	}

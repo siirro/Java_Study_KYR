@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public interface BoardService {
 	
-	public List<BoardDTO> getList()throws Exception;
+	public List<BoardDTO> getList(Long page)throws Exception;
 	
 	public BoardDTO getDetail(BoardDTO boardDTO)throws Exception;
 	

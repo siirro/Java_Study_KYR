@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.start.board.impl.BoardDTO;
@@ -19,11 +20,11 @@ public class QnaController {
 	private QnaService qnaService;
 	
 	@RequestMapping(value="list.iu",method=RequestMethod.GET)
-	public String getList(Model model)throws Exception {
-		List<BoardDTO> ar = qnaService.getList();
+	public String getList(Model model, @RequestParam(defaultValue = "1") Long page)throws Exception {
+		List<BoardDTO> ar = qnaService.getList(page);
 		model.addAttribute("list", ar);
-		
-		return "qna/list";
+		model.addAttribute("board", "QNA");
+		return "board/list";
 	}
 	
 	@RequestMapping(value="detail.iu", method=RequestMethod.GET)
@@ -32,13 +33,16 @@ public class QnaController {
 		boardDTO = qnaService.getDetail(boardDTO);
 		
 		mv.addObject("boardDTO", boardDTO);
-		mv.setViewName("qna/detail");
+		mv.addObject("board", "QNA");
+		mv.setViewName("board/detail");
 		return mv;
 	}
 	
 	@RequestMapping(value="add.iu", method=RequestMethod.GET)
-	public String setAdd()throws Exception{
-		return "qna/add";
+	public String setAdd(Model model)throws Exception{
+		model.addAttribute("board", "QNA");
+
+		return "board/add";
 	}
 	
 	
@@ -53,7 +57,8 @@ public class QnaController {
 	public String setUpdate(BoardDTO boardDTO, Model model)throws Exception {
 		boardDTO = qnaService.getDetail(boardDTO);
 		model.addAttribute("boardDTO", boardDTO);
-		return "qna/update";
+		model.addAttribute("board", "QNA");
+		return "board/update";
 	}
 	
 	@RequestMapping(value="update.iu", method=RequestMethod.POST)

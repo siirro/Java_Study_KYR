@@ -20,7 +20,7 @@
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">ID</label>
     <input type="text" name="userName" value="NAME1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">아이디 유출 안합니다</div>
+    <div id="emailHelp" class="form-text">아이디를 입력하세요 ★</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>

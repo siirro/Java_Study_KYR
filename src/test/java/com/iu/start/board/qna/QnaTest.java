@@ -15,13 +15,13 @@ public class QnaTest extends MyAbstractTest{
 	@Autowired
 	private QnaDAO qnaDAO;
 	
-	@Test
-	public void getListTest() throws Exception {
-		BoardDTO boardDTO = new BoardDTO();
-		List<BoardDTO> ar = qnaDAO.getList();
-		
-		assertEquals(3, ar.size());
-	}
+//	@Test
+//	public void getListTest() throws Exception {
+//		BoardDTO boardDTO = new BoardDTO();
+//		List<BoardDTO> ar = qnaDAO.getList();
+//		
+//		assertEquals(3, ar.size());
+//	}
 	
 	@Test
 	public void getDetail()throws Exception{
