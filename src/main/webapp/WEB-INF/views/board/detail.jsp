@@ -17,7 +17,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 
 <h3 class="m-4">${board} 글 상세 페이지</h3>
 
-<section class="col-lg-6">
+<section class="col-lg-8">
 <table class="table table-bordered border-primary">
   <thead class="table-primary">
     <tr>

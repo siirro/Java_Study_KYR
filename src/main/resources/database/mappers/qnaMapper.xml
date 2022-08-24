@@ -30,4 +30,8 @@ DELETE FROM QNA WHERE NUM = #{num}
 UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
 </update>
 
+<select id="getCount" resultType="Long">
+SELECT COUNT(NUM) FROM QNA
+</select>
+
 </mapper>

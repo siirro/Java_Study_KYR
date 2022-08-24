@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.iu.start.util.Pager;
+
 public interface BoardService {
 	
-	public List<BoardDTO> getList(Long page)throws Exception;
+	public List<BoardDTO> getList(Pager pager)throws Exception;
 	
 	public BoardDTO getDetail(BoardDTO boardDTO)throws Exception;
 	

@@ -12,13 +12,15 @@
   	<typeAlias type="java.lang.String" alias="String"/>
   	<typeAlias type="java.lang.Long" alias="Long"/>
   	
+  	<typeAlias type="java.util.List" alias="List"/>
+  	
 
   	<typeAlias type="com.iu.start.bankAccount.BankAccountDTO" alias="BankAccountDTO"/>
 	<typeAlias type="com.iu.start.board.notice.NoticeDTO" alias="NoticeDTO"/>
 	<typeAlias type="com.iu.start.board.impl.BoardDTO" alias="BoardDTO"/>
-	
 	<typeAlias type="com.iu.start.board.qna.QnaDTO" alias="QnaDTO"/>
-  	<typeAlias type="java.util.List" alias="List"/>
+  	
+  	<typeAlias type="com.iu.start.util.Pager" alias="Pager"/>
   	
   
   	
