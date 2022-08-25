@@ -26,9 +26,13 @@ public class Pager {
 	//이전블럭의 유무- 다음블럭이 있으면 true, 없으면 false
 	private boolean next;
 	
+	private String search;
+	private String kind;
 	
 	
 	
+
+
 
 
 	private Pager() {
@@ -151,5 +155,20 @@ public class Pager {
 		this.next = next;
 	}
 	
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
 
 }

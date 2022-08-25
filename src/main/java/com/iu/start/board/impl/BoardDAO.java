@@ -3,6 +3,7 @@ package com.iu.start.board.impl;
 import java.util.List;
 import java.util.Map;
 
+import com.iu.start.board.qna.QnaDTO;
 import com.iu.start.util.Pager;
 
 public interface BoardDAO {
@@ -25,6 +26,9 @@ public interface BoardDAO {
 	public int setDelete(BoardDTO boardDTO)throws Exception;
 	
 	//카운트
-	public Long getCount()throws Exception;
+	public Long getCount(Pager pager)throws Exception;
+	
+
+	
 	
 }

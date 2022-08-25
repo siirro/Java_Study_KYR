@@ -7,10 +7,31 @@
 <!--namespace의 값은 사용할 DAO의 풀패키지명 -->	
     
 <mapper namespace="com.iu.start.board.qna.QnaDAO">
-	<select id="getList" resultType="QnaDTO">
+
+<insert id="setReplyAdd" parameterType="QnaDTO">
+<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+	SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+INSERT INTO QNA VALUES(#{num}, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{ref}, #{step}, #{depth})
+</insert>
+
+<update id="setStepUpdate" parameterType="QnaDTO">
+UPDATE QNA SET STEP=STEP+1 WHERE REF=#{ref} and STEP>#{step} 
+</update>
+
+	<select id="getList" resultType="QnaDTO" parameterType="Pager">
 SELECT * FROM 
 (SELECT ROWNUM R, N.* FROM
-(SELECT * FROM QNA ORDER BY NUM DESC) N)
+(SELECT * FROM QNA 
+WHERE
+		<choose>
+		<when test="kind == 'title'">TITLE</when>
+		<when test="kind == 'writer'">WRITER</when>
+		<when test="kind == 'contents'">CONTENTS</when>
+		<otherwise>CONTENTS</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+ORDER BY REF DESC, STEP ASC) N)
 WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 
@@ -19,7 +40,10 @@ SELECT * FROM QNA WHERE NUM = #{num}
 </select>
 
 <insert id="setAdd" parameterType="BoardDTO">
-INSERT INTO QNA VALUES(BOARD_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, SYSDATE, 0,0,0,0)
+	<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+	SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+INSERT INTO QNA VALUES(#{num}, #{title}, #{contents}, #{writer}, SYSDATE, 0,#{num},0,0)
 </insert>
 
 <delete id="setDelete" parameterType="BoardDTO">
@@ -30,8 +54,16 @@ DELETE FROM QNA WHERE NUM = #{num}
 UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
 </update>
 
-<select id="getCount" resultType="Long">
+<select id="getCount" parameterType="Pager" resultType="Long">
 SELECT COUNT(NUM) FROM QNA
+WHERE
+		<choose>
+		<when test="kind == 'title'">TITLE</when>
+		<when test="kind == 'writer'">WRITER</when>
+		<when test="kind == 'contents'">CONTENTS</when>
+		<otherwise>CONTENTS</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
 </select>
 
 </mapper>

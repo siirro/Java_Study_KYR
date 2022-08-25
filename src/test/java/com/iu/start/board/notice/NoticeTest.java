@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.iu.start.MyAbstractTest;
 import com.iu.start.board.impl.BoardDAO;
 import com.iu.start.board.impl.BoardDTO;
+import com.iu.start.util.Pager;
 
 public class NoticeTest extends MyAbstractTest{
 	
@@ -17,8 +18,8 @@ public class NoticeTest extends MyAbstractTest{
 	private NoticeDAO noticeDAO;
 	
 	@Test
-	public void getCountTest()throws Exception{
-		long count = noticeDAO.getCount();
+	public void getCountTest(Pager pager)throws Exception{
+		long count = noticeDAO.getCount(pager);
 		assertEquals(102L, count);
 	}
 

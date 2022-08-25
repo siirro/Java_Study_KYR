@@ -7,10 +7,25 @@
 <!--namespace의 값은 사용할 DAO의 풀패키지명 -->	
     
 <mapper namespace="com.iu.start.board.notice.NoticeDAO">
+
+<sql id="search">
+	WHERE
+		<choose>
+			<when test="kind == 'title'">TITLE</when>
+			<when test="kind == 'writer'">WRITER</when>
+			<!-- <when test="kind == 'contents'">CONTENTS</when> -->
+			<otherwise>CONTENTS</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+</sql>
+
 <select id="getList" resultType="NoticeDTO" parameterType="Pager">
 SELECT * FROM 
 (SELECT ROWNUM R, N.* FROM
-(SELECT * FROM NOTICE ORDER BY NUM DESC) N)
+(SELECT * FROM NOTICE 
+	<include refid="search"></include>
+
+ORDER BY NUM DESC) N)
 WHERE R BETWEEN #{startRow} AND #{lastRow}
 </select>
 
@@ -30,8 +45,9 @@ UPDATE NOTICE SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
 DELETE FROM NOTICE WHERE NUM = #{num}
 </delete>
 
-<select id="getCount" resultType="Long">
-SELECT COUNT(NUM) FROM NOTICE
+<select id="getCount" parameterType="Pager" resultType="Long">
+SELECT COUNT(NUM) FROM NOTICE 
+<include refid="search"></include>
 </select>
 
 

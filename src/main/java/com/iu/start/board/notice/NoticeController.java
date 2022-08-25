@@ -34,7 +34,8 @@ public class NoticeController {
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("board/list");
-		System.out.println(pager.getPage());
+		System.out.println(pager.getKind());
+		System.out.println(pager.getSearch());
 		return mv;
 	}
 	

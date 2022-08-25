@@ -48,8 +48,14 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 </table>
 </section>
 
+<div class="row col-lg-6">
+	<a href="./reply.iu?num=${boardDTO.num}" class="btn btn-danger">답글</a>
+</div>
+
+<div>
 <a class="btn btn-primary" href="./update.iu?num=${boardDTO.num}" role="button">글수정</a>
 <a class="btn btn-primary" href="./delete.iu?num=${boardDTO.num}" role="button">글삭제</a>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.start.board.impl.BoardDAO;
 import com.iu.start.board.impl.BoardDTO;
+import com.iu.start.board.qna.QnaDTO;
 import com.iu.start.util.Pager;
 
 @Repository
@@ -49,9 +50,11 @@ public class NoticeDAO implements BoardDAO{
 	}
 
 	@Override
-	public Long getCount() throws Exception {
+	public Long getCount(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(NAMESPACE+"getCount");
+		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
+	
+	
 
 }

@@ -17,6 +17,34 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 
 <h3 class="m-4">${board} 목록</h3>
 
+	<div class="row m-2">
+	<form action="./list.iu" method="get" class="row row-cols-lg-auto g-1 align-items-center">
+	 
+	  <div class="col-12">
+	    <label class="visually-hidden" for="find">Preference</label>
+	    <select name="kind" class="form-select" id="find">
+	     <!--  <option selected value="title">제목</option> -->
+	      <option value="title">제목</option>
+	      <option value="contents">내용</option>
+	      <option value="writer">작성자</option>
+	    </select>
+	  </div>
+	  
+	    <div class="col-12">
+	    <label class="visually-hidden" for="search">입력</label>
+	    <div class="input-group">
+	      <input type="text" name="search" class="form-control" id="search" placeholder="입력">
+	    </div>
+	  </div>
+	
+	  <div class="col-12">
+	    <button type="submit" class="btn btn-primary">검색</button>
+	  </div> ed 
+	</form>
+	</div>
+
+
+<div>
 <section class="col-lg-6">
 <table class="table table-bordered border-primary">
   <thead class="table-primary">
@@ -32,7 +60,13 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
   <c:forEach items="${requestScope.list}" var="nl">
     <tr>
     	<td>${nl.num}</td>
-    	<td><a href="./detail.iu?num=${nl.num}">${nl.title}</a></td>
+    	<td>
+    	
+    	<c:catch>
+    	<c:forEach begin="1" end="${nl.depth}">&nbsp;--</c:forEach>
+    	</c:catch>
+    	
+    	<a href="./detail.iu?num=${nl.num}">${nl.title}</a></td>
     	<td>${nl.writer}</td>
     	<td>${nl.regDate}</td>
     	<td>${nl.hit}</td>
@@ -41,25 +75,26 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
   </tbody>
 </table>
 </section>
+</div>
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
   
   	<c:if test="${pager.pre}">
     <li class="page-item">
-      <a class="page-link" href="./list.iu?page=${pager.startNum-1}" aria-label="Previous">
+      <a class="page-link" href="./list.iu?page=${pager.startNum-1}&kind=${paser.kind}&search=${pager.search}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
     </c:if>
     
     <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-    <li class="page-item"><a class="page-link" href="./list.iu?page=${i}">${i}</a></li>    
+    <li class="page-item"><a class="page-link" href="./list.iu?page=${i}&kind=${paser.kind}&search=${pager.search}">${i}</a></li>    
     </c:forEach>
 	
 
 		<li class="page-item ${pager.next?'':'disabled'}">
-    	  <a class="page-link" href="./list.iu?page=${pager.lastNum+1}" aria-label="Next">
+    	  <a class="page-link" href="./list.iu?page=${pager.lastNum+1}&kind=${paser.kind}&search=${pager.search}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
