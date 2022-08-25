@@ -44,23 +44,29 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
+  
+  	<c:if test="${pager.pre}">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="./list.iu?page=${pager.startNum-1}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
+    </c:if>
     
     <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
     <li class="page-item"><a class="page-link" href="./list.iu?page=${i}">${i}</a></li>    
     </c:forEach>
+	
 
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+		<li class="page-item ${pager.next?'':'disabled'}">
+    	  <a class="page-link" href="./list.iu?page=${pager.lastNum+1}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
   </ul>
 </nav>
+
+
 
 <c:if test="${not empty sessionScope.member}">
 <a class="btn btn-primary" href="./add.iu" role="button">글쓰기</a>
