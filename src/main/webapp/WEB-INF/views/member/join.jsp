@@ -13,16 +13,24 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-	<h3>Join Page</h1>
+	<h3 class="m-3">Join Page</h1>
 	
-	<form action="join.iu" method="post">
+	<form action="join.iu" method="post" enctype="multipart/form-data">
 	<div>
-	
-        ID <input type="text" name="userName"> <br>
+		<div class="form-floating col-2">
+	      <input type="text" class="form-control" id="id" placeholder="dsf" name="userName">
+	      <label for="floatingID">ID</label>
+    	</div>
+        <!-- ID <input type="text" name="userName"> <br> -->
         비밀번호 <input type="password" name="password"> <br>
         이름 <input type="text" name="name"> <br>
         이메일 <input type="email" name="email"> <br>
         전화번호 <input type="tel" name="phone"> <br>
+        
+	    <div class="form-floating">
+	      <input type="file" class="form-control" id="files" placeholder="글제목" name="photo">
+	      <label for="files">파일첨부</label>
+	    </div>
        
         <input type="submit" value="회원가입">
     </div>

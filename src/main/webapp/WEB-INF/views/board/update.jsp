@@ -24,7 +24,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
       <label for="floatingPassword">글제목</label>
     </div>
     <div>
-      <textarea rows="10" class="form-control"  id="floatingPassword" placeholder="글내용" name="contents" value="${boardDTO.contents}"></textarea>
+      <textarea rows="10" class="form-control"  id="floatingPassword" placeholder="글내용" name="contents" value="${boardDTO.contents}">${boardDTO.contents}</textarea>
     </div>
     <br>
     <button class="w-100 btn btn-lg btn-primary" type="submit">수정</button>

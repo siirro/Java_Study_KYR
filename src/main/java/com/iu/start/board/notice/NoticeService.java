@@ -1,13 +1,19 @@
 package com.iu.start.board.notice;
 
+import java.io.File;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.start.board.impl.BoardDTO;
+import com.iu.start.board.impl.BoardFileDTO;
 import com.iu.start.board.impl.BoardService;
 import com.iu.start.util.Pager;
 
@@ -16,6 +22,9 @@ public class NoticeService implements BoardService{
 
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
+	@Autowired
+	private ServletContext servletContext;
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
@@ -113,9 +122,42 @@ public class NoticeService implements BoardService{
 	}
 
 	@Override
-	public int setAdd(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return noticeDAO.setAdd(boardDTO);
+	public int setAdd(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
+		//int result = noticeDAO.setAdd(boardDTO);
+		String realPath = servletContext.getRealPath("resources/upload/notice");
+		
+		File file = new File(realPath);
+
+		if(!file.exists()) {
+			file.mkdirs();
+		}
+		
+		Calendar ca = Calendar.getInstance();
+		Long time = ca.getTimeInMillis();
+		String fileName = time.toString();
+		
+		for(MultipartFile f : files) {
+			
+			if(f.isEmpty()) {
+				continue;
+			}
+
+			
+			fileName = time+"_"+f.getOriginalFilename();
+			System.out.println(fileName);
+
+			f.transferTo(new File(file, fileName));
+			
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriName(f.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			System.out.println(boardDTO.getNum());
+			noticeDAO.setAddFile(boardFileDTO);
+
+		}
+		
+		return 0;
 	}
 
 	@Override

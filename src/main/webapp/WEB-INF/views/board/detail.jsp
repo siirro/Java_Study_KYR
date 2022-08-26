@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>공지게시판 게시글 보기</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
 rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
@@ -17,7 +18,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 
 <h3 class="m-4">${board} 글 상세 페이지</h3>
 
-<section class="col-lg-8">
+<section class="col-lg-6">
 <table class="table table-bordered border-primary">
   <thead class="table-primary">
     <tr>
@@ -48,9 +49,10 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 </table>
 </section>
 
-<div class="row col-lg-6">
+<div class="row col-lg-6 mb-3">
 	<a href="./reply.iu?num=${boardDTO.num}" class="btn btn-danger">답글</a>
 </div>
+
 
 <div>
 <a class="btn btn-primary" href="./update.iu?num=${boardDTO.num}" role="button">글수정</a>

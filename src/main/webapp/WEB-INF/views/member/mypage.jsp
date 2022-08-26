@@ -12,9 +12,14 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>    
-<h3 class="m-4" style="color:purple">Member Info</h3>
+<h3 class="m-4 text-center" style="color:purple">Member Info</h3>
 
-<section class="m-4">
+<div class="text-center">
+	<img width=400 height=250 src="../resources/upload/member/${dto.bankMembersFileDTO.fileName}" >
+</div>
+
+<section class="m-4 text-center">
+
 <p>ID: ${requestScope.dto.userName}</p>
 <p>NAME: ${requestScope.dto.name}</p>
 <p>EMAIL: ${requestScope.dto.email}</p>
@@ -22,15 +27,16 @@
 </section>
 
 
-<h3 class="m-4" style="color:purple">보유 계좌 현황</h3>
+<h3 class="m-4 text-center" style="color:purple">보유 계좌 현황</h3>
 
-<section class="col-lg-6">
+
+<section class="col-6 text-center">
 	<table border="1" class="table table-striped">
 		<thead>
 			<tr>
-				<th>accountNum</th>
-				<th>bookName</th>
-				<th>accountDate</th>
+				<th>계좌번호</th>
+				<th>통장이름</th>
+				<th>개설일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -44,6 +50,8 @@
 		</tbody>
 	</table>
 </section>
+
+
 
 
 <!-- map버전

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.start.bankBook.BankBookDTO;
@@ -42,7 +43,6 @@ public class BankAccountController {
 		
 		
 		bankAccountService.add(bankAccountDTO);
-		System.out.println(bankAccountDTO.getAccountDate());
 		return "redirect:../bankbook/list.iu";
 	}
 }

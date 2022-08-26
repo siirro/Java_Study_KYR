@@ -8,6 +8,9 @@
 <typeAliases>
 			
   	<typeAlias type="com.iu.start.bankmembers.BankMembersDTO" alias="BankMembersDTO"/>
+  	<typeAlias type="com.iu.start.bankmembers.BankMembersFileDTO" alias="BankMembersFileDTO"/>
+  	
+  	
   	<typeAlias type="com.iu.start.bankBook.BankBookDTO" alias="BankBookDTO"/>
   	<typeAlias type="java.lang.String" alias="String"/>
   	<typeAlias type="java.lang.Long" alias="Long"/>
@@ -18,9 +21,12 @@
   	<typeAlias type="com.iu.start.bankAccount.BankAccountDTO" alias="BankAccountDTO"/>
 	<typeAlias type="com.iu.start.board.notice.NoticeDTO" alias="NoticeDTO"/>
 	<typeAlias type="com.iu.start.board.impl.BoardDTO" alias="BoardDTO"/>
+  	<typeAlias type="com.iu.start.board.impl.BoardFileDTO" alias="BoardFileDTO"/>
 	<typeAlias type="com.iu.start.board.qna.QnaDTO" alias="QnaDTO"/>
   	
   	<typeAlias type="com.iu.start.util.Pager" alias="Pager"/>
+  	
+  	
   	
   
   	

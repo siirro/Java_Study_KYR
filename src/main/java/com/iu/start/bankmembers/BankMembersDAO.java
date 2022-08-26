@@ -15,6 +15,10 @@ public class BankMembersDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.start.bankmembers.BankMembersDAO.";
 	
+	public int setAddFile(BankMembersFileDTO bankMembersFileDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setAddFile", bankMembersFileDTO);
+	}
+	
 	public BankMembersDTO myPage(BankMembersDTO bankMembersDTO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"myPage", bankMembersDTO); 
 	}
@@ -31,8 +35,7 @@ public class BankMembersDAO {
 		//return sqlSession.selectList(NAMESPACE+"getSearchByID", search);
 		sqlSession.selectList(NAMESPACE+"getSearchByID", search);
 		return sqlSession.selectList(NAMESPACE+"getSearchByID", search);
-		
 	}
-
+	
 	
 }

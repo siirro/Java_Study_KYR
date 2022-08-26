@@ -8,6 +8,11 @@
     
 <mapper namespace="com.iu.start.board.notice.NoticeDAO">
 
+<insert id="setAddFile" parameterType="BoardFileDTO">
+INSERT INTO NOTICEFILE 
+VALUES(FILE_SEQ.NEXTVAL, #{num}, #{fileName}, '#{oriName})
+</insert>
+
 <sql id="search">
 	WHERE
 		<choose>
