@@ -36,6 +36,7 @@ public class NoticeService implements BoardService{
 		
 		
 		
+		
 		// TODO Auto-generated method stub
 //		System.out.println("service page"+page);
 //		Long perPage = 10L; //한페이지에 출력할 목록의 개수
