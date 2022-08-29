@@ -3,6 +3,7 @@ package com.iu.start.bankmembers;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -93,7 +94,7 @@ public class BankMembersController {
 	}
 	
 	@RequestMapping(value="join.iu", method=RequestMethod.POST)
-	public String join(BankMembersDTO bankMembersDTO, MultipartFile photo) throws Exception{
+	public String join(BankMembersDTO bankMembersDTO, MultipartFile photo, HttpSession session) throws Exception{
 		System.out.println("회원가입 post실행");
 		System.out.println(photo);
 		
@@ -101,7 +102,7 @@ public class BankMembersController {
 		System.out.println("upload 파라미터명 : "+photo.getName());
 		System.out.println("upload하는 파일의 크기 : "+photo.getSize());
 		
-		int result = bankMembersService.setJoin(bankMembersDTO, photo);
+		int result = bankMembersService.setJoin(bankMembersDTO, photo, session.getServletContext());
 
 		return "redirect:./login.iu";
 	}

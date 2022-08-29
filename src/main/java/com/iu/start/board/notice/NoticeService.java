@@ -17,15 +17,16 @@ import com.iu.start.board.impl.BoardDTO;
 import com.iu.start.board.impl.BoardFileDTO;
 import com.iu.start.board.impl.BoardService;
 import com.iu.start.util.Pager;
+import com.iu.start.util.fileManager;
 
 @Service
 public class NoticeService implements BoardService{
 
 	@Autowired
 	private NoticeDAO noticeDAO;
-	
+
 	@Autowired
-	private ServletContext servletContext;
+	private fileManager fileManager;
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
@@ -123,54 +124,67 @@ public class NoticeService implements BoardService{
 	}
 
 	@Override
-	public int setAdd(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
+	public int setAdd(BoardDTO boardDTO, MultipartFile [] files, ServletContext servletContext) throws Exception {
 		int result = noticeDAO.setAdd(boardDTO);
-		String realPath = servletContext.getRealPath("resources/upload/notice");
-		
-		File file = new File(realPath);
-
-		if(!file.exists()) {
-			file.mkdirs();
-		}
-		
-		
-		
+		String path="resources/upload/notice";
 		
 		for(MultipartFile f : files) {
-			
 			if(f.isEmpty()) {
 				continue;
 			}
 			
-			//정석 방법 1번@@
-			//File file = new File(realPath);
-
-			
-			String fileName = UUID.randomUUID().toString();
-			fileName = fileName+"_"+f.getOriginalFilename();
-			System.out.println(fileName);
-
-			//이거는 에러방법!!!
-			//file = new File(file, fileName) 폴더, 파일명
-			//f.transferTo(file); //일케하면 파일명 중첩되서 에러뜸
-			
-			
-			//정석 방법2번!
-//			File dest = new File(file, fileName); 
-//			f.transferTo(dest); //
-			
-			
-			f.transferTo(new File(file, fileName));
-			
+			String fileName = fileManager.saveFile(servletContext, path, f);
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
 			boardFileDTO.setFileName(fileName);
 			boardFileDTO.setOriName(f.getOriginalFilename());
 			boardFileDTO.setNum(boardDTO.getNum());
-			System.out.println(boardDTO.getNum());
 			noticeDAO.setAddFile(boardFileDTO);
-
 		}
 		
+		//다중파일버전
+//		String realPath = servletContext.getRealPath("resources/upload/notice");
+//		
+//		File file = new File(realPath);
+//
+//		if(!file.exists()) {
+//			file.mkdirs();
+//		}
+
+//		for(MultipartFile f : files) {
+//			
+//			if(f.isEmpty()) {
+//				continue;
+//			}
+//			
+//			//정석 방법 1번@@
+//			//File file = new File(realPath);
+//
+//			
+//			String fileName = UUID.randomUUID().toString();
+//			fileName = fileName+"_"+f.getOriginalFilename();
+//			System.out.println(fileName);
+//
+//			//이거는 에러방법!!!
+//			//file = new File(file, fileName) 폴더, 파일명
+//			//f.transferTo(file); //일케하면 파일명 중첩되서 에러뜸
+//			
+//			
+//			//정석 방법2번!
+////			File dest = new File(file, fileName); 
+////			f.transferTo(dest); //
+//			
+//			
+//			f.transferTo(new File(file, fileName));
+//			
+//			BoardFileDTO boardFileDTO = new BoardFileDTO();
+//			boardFileDTO.setFileName(fileName);
+//			boardFileDTO.setOriName(f.getOriginalFilename());
+//			boardFileDTO.setNum(boardDTO.getNum());
+//			System.out.println(boardDTO.getNum());
+//			noticeDAO.setAddFile(boardFileDTO);
+//
+//		}
+//		
 		return result;
 	}
 

@@ -14,23 +14,36 @@
 <c:import url="../template/header.jsp"></c:import>    
 <h3 class="m-4 text-center" style="color:purple">Member Info</h3>
 
-<div class="text-center">
+<div class="text-center m-3">
 	<img width=400 height=250 src="../resources/upload/member/${dto.bankMembersFileDTO.fileName}" >
 </div>
 
-<section class="m-4 text-center">
-
-<p>ID: ${requestScope.dto.userName}</p>
-<p>NAME: ${requestScope.dto.name}</p>
-<p>EMAIL: ${requestScope.dto.email}</p>
-<p>PHONE: ${requestScope.dto.phone}</p>
+<section class="col-6 m-auto mt-3 text-center">
+<table border="1" class="table border-primary">
+		<thead class="table-primary">
+			<tr>
+				<th>ID</th>
+				<th>이름</th>
+				<th>이메일</th>
+				<th>전화번호</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+					<td>${requestScope.dto.userName}</td>
+					<td>${requestScope.dto.name}</td>
+					<td>${requestScope.dto.email}</td>
+					<td>${requestScope.dto.phone}</td>
+				</tr>
+		</tbody>
+	</table>
 </section>
 
 
 <h3 class="m-4 text-center" style="color:purple">보유 계좌 현황</h3>
 
 
-<section class="col-6 text-center">
+<section class="text-center col-6 m-auto">
 	<table border="1" class="table table-striped">
 		<thead>
 			<tr>

@@ -49,6 +49,15 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 </table>
 </section>
 
+<div class="m-2">
+<c:forEach items="${boardDTO.boardFileDTO}" var="fileDTO">
+	<p>
+	<a href="../resources/upload/${board}/${fileDTO.fileName}">${fileDTO.oriName}</a>
+	</p>
+</c:forEach>
+<%-- 	<img width=400 height=250 src="../resources/upload/${board}/${boardDTO.boardFileDTO.fileName}" >
+ --%></div>
+
 <div class="row col-lg-6 mb-3">
 	<a href="./reply.iu?num=${boardDTO.num}" class="btn btn-danger">답글</a>
 </div>

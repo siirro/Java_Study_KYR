@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,10 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	@ModelAttribute("board")
+	public String getBoard() {
+		return "qna";
+	}
 	
 //	@RequestMapping(value="reply.iu", method=RequestMethod.GET)
 	//위에꺼 너무 귀찮아서 겟매핑 새로나옴
@@ -43,7 +48,6 @@ public class QnaController {
 	public String getList(Model model, Pager pager)throws Exception {
 		List<BoardDTO> ar = qnaService.getList(pager);
 		model.addAttribute("list", ar);
-		model.addAttribute("board", "QNA");
 		model.addAttribute("pager", pager);
 		return "board/list";
 	}
@@ -57,14 +61,12 @@ public class QnaController {
 		boardDTO = qnaService.getDetail(boardDTO);
 		
 		mv.addObject("boardDTO", boardDTO);
-		mv.addObject("board", "QNA");
 		mv.setViewName("board/detail");
 		return mv;
 	}
 	
 	@RequestMapping(value="add.iu", method=RequestMethod.GET)
 	public String setAdd(Model model)throws Exception{
-		model.addAttribute("board", "QNA");
 
 		return "board/add";
 	}
@@ -81,7 +83,6 @@ public class QnaController {
 	public String setUpdate(BoardDTO boardDTO, Model model)throws Exception {
 		boardDTO = qnaService.getDetail(boardDTO);
 		model.addAttribute("boardDTO", boardDTO);
-		model.addAttribute("board", "QNA");
 		return "board/update";
 	}
 	
