@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 
@@ -123,7 +124,7 @@ public class NoticeService implements BoardService{
 
 	@Override
 	public int setAdd(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
-		//int result = noticeDAO.setAdd(boardDTO);
+		int result = noticeDAO.setAdd(boardDTO);
 		String realPath = servletContext.getRealPath("resources/upload/notice");
 		
 		File file = new File(realPath);
@@ -132,20 +133,33 @@ public class NoticeService implements BoardService{
 			file.mkdirs();
 		}
 		
-		Calendar ca = Calendar.getInstance();
-		Long time = ca.getTimeInMillis();
-		String fileName = time.toString();
+		
+		
 		
 		for(MultipartFile f : files) {
 			
 			if(f.isEmpty()) {
 				continue;
 			}
+			
+			//정석 방법 1번@@
+			//File file = new File(realPath);
 
 			
-			fileName = time+"_"+f.getOriginalFilename();
+			String fileName = UUID.randomUUID().toString();
+			fileName = fileName+"_"+f.getOriginalFilename();
 			System.out.println(fileName);
 
+			//이거는 에러방법!!!
+			//file = new File(file, fileName) 폴더, 파일명
+			//f.transferTo(file); //일케하면 파일명 중첩되서 에러뜸
+			
+			
+			//정석 방법2번!
+//			File dest = new File(file, fileName); 
+//			f.transferTo(dest); //
+			
+			
 			f.transferTo(new File(file, fileName));
 			
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
@@ -157,7 +171,7 @@ public class NoticeService implements BoardService{
 
 		}
 		
-		return 0;
+		return result;
 	}
 
 	@Override

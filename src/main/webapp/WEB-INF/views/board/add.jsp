@@ -27,7 +27,6 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 
 <section class="col-lg-6">
 <form action="add.iu" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="num">
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingWriter" placeholder="Writer" name="writer" value=${member.userName} readonly>
       <label for="floatingWriter">작성자</label>
