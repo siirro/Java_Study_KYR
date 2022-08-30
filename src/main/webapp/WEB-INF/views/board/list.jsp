@@ -20,26 +20,25 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 	<div class="row m-2">
 	<form action="./list.iu" method="get" class="row row-cols-lg-auto g-1 align-items-center">
 	 
-	  <div class="col-12">
+	  <div class="col-2">
 	    <label class="visually-hidden" for="find">Preference</label>
 	    <select name="kind" class="form-select" id="find">
-	     <!--  <option selected value="title">제목</option> -->
-	      <option value="title">제목</option>
-	      <option value="contents">내용</option>
-	      <option value="writer">작성자</option>
+	      <option class="kinds" value="title" selected="true">제목</option>
+	      <option class="kinds" value="contents">내용</option>
+	      <option class="kinds" value="writer">작성자</option>
 	    </select>
 	  </div>
 	  
-	    <div class="col-12">
+	    <div class="col-3">
 	    <label class="visually-hidden" for="search">입력</label>
 	    <div class="input-group">
-	      <input type="text" name="search" class="form-control" id="search" placeholder="입력">
+	      <input type="text" name="search" value="${param.search}" class="form-control" id="search" placeholder="입력">
 	    </div>
 	  </div>
 	
 	  <div class="col-12">
 	    <button type="submit" class="btn btn-primary">검색</button>
-	  </div> ed 
+	  </div>
 	</form>
 	</div>
 
@@ -106,9 +105,22 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 <c:if test="${not empty sessionScope.member}">
 <a class="btn btn-primary" href="./add.iu" role="button">글쓰기</a>
 </c:if>
-
+<c:import url="../template/footer.jsp"></c:import>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<c:import url="../template/footer.jsp"></c:import>
+
+<script src="/resources/js/board.js"></script>
+<script>
+	let k = '${param.kind}'; //title, writer, contents 셋 중하나가 들어가요
+	const kinds = document.getElementsByClassName('kinds');
+
+	for(let i=0;i<kinds.length;i++) {
+		if(k==kinds[i].value) {
+			//kinds[i].setAttribute("selected",'true');
+			kinds[i].selected='true';
+			break;
+		}
+}
+</script>
 </body>
 </html>

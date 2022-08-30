@@ -10,6 +10,7 @@ bb.addEventListener("click", function(){
     let u = userName.value;
     let p = password.value;
     console.log(u.length);
+    aa.submit();
 
     if(u=="") {
         alert('id는 필수입니다');
