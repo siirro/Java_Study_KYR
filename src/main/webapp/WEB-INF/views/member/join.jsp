@@ -15,26 +15,49 @@
 
 	<h3 class="m-3">Join Page</h1>
 	
-	<form action="join.iu" method="post" enctype="multipart/form-data">
+	<form action="join.iu" method="post" enctype="multipart/form-data" id="gg">
 	<div>
 		<div class="form-floating col-4 m-1">
-	      <input type="text" class="form-control" id="id" placeholder="dsf" name="userName">
-	      <label for="floatingID">ID</label>
+	      <input type="text" class="form-control" id="idid" name="userName">
+	      <div id="iderror" style="color: red; font-size: small;""></div>
+		  <label for="floatingID">ID</label>
     	</div>
         <div class="form-floating col-4 m-1">
-			<input type="password" class="form-control" id="password" placeholder="dsf" name="password">
+			<input type="password" class="form-control" id="password" name="password">
+			<div id="pwerror" style="color: red; font-size: small;"></div>
 			<label for="floatingID">비밀번호</label>
 		</div>
-        이름 <input type="text" name="name"> <br>
-        이메일 <input type="email" name="email"> <br>
-        전화번호 <input type="tel" name="phone"> <br>
-        
+		<div class="form-floating col-4 m-1">
+			<input type="password" class="form-control" id="passwordCheck" name="passwordc">
+			<div id="pce" style="color: red; font-size: small;"></div>
+			<label for="floatingID">비밀번호확인</label>
+		</div>
+
+		<div class="form-floating col-4 m-1">
+			<input type="text" class="form-control" name="name" id="namen">
+			<div id="nerror" style="color: red; font-size: small;"></div>
+			<label for="floatingID">이름</label>
+		</div>
+
+		<div class="form-floating col-4 m-1">
+			<input type="email" required class="form-control" name="email" id="email"> <br>
+			<div id="eerror" style="color: red; font-size: small;"></div>
+			<label for="floatingID">이메일 </label>
+		</div>
+
+		<div class="form-floating col-4 m-1">
+			<input type="tel" class="form-control" name="phone" id="phone"> <br>
+			<div id="perror" style="color: red; font-size: small;"></div>
+			<label for="floatingID">전화번호</label>
+		</div>
+
 	    <div class="form-floating col-2">
 	      <input type="file" class="form-control" id="files" placeholder="글제목" name="photo">
 	      <label for="files">파일첨부</label>
 	    </div>
        
-        <input type="submit" value="회원가입">
+        <button type="submit" class="btn btn-primary" id="jbutton" >회원가입</button>
+
     </div>
     </form>
 
@@ -42,6 +65,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   
-
+<script src="/resources/js/join.js"></script>
 </body>
 </html>

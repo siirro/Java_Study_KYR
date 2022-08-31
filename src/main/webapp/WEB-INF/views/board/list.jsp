@@ -117,7 +117,7 @@ integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4
 	for(let i=0;i<kinds.length;i++) {
 		if(k==kinds[i].value) {
 			//kinds[i].setAttribute("selected",'true');
-			kinds[i].selected='true';
+			kinds[i].selected=true;
 			break;
 		}
 }
