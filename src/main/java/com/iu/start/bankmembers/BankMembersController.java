@@ -89,8 +89,14 @@ public class BankMembersController {
 		return "redirect:../";
 	}
 	
+	@RequestMapping(value="terms.iu", method=RequestMethod.GET)
+	public String terms() throws Exception{
+		return "member/terms";
+	}
+	
 	@RequestMapping(value="join.iu", method=RequestMethod.GET)
 	public void join() throws Exception{
+		//return "member/join";
 	}
 	
 	@RequestMapping(value="join.iu", method=RequestMethod.POST)

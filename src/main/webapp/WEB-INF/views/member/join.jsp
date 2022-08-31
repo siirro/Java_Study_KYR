@@ -17,17 +17,19 @@
 	
 	<form action="join.iu" method="post" enctype="multipart/form-data">
 	<div>
-		<div class="form-floating col-2">
+		<div class="form-floating col-4 m-1">
 	      <input type="text" class="form-control" id="id" placeholder="dsf" name="userName">
 	      <label for="floatingID">ID</label>
     	</div>
-        <!-- ID <input type="text" name="userName"> <br> -->
-        비밀번호 <input type="password" name="password"> <br>
+        <div class="form-floating col-4 m-1">
+			<input type="password" class="form-control" id="password" placeholder="dsf" name="password">
+			<label for="floatingID">비밀번호</label>
+		</div>
         이름 <input type="text" name="name"> <br>
         이메일 <input type="email" name="email"> <br>
         전화번호 <input type="tel" name="phone"> <br>
         
-	    <div class="form-floating">
+	    <div class="form-floating col-2">
 	      <input type="file" class="form-control" id="files" placeholder="글제목" name="photo">
 	      <label for="files">파일첨부</label>
 	    </div>
