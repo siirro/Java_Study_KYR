@@ -9,16 +9,34 @@ for(let i=0;i<ch.length;i++){
 }
 
 
-all.addEventListener("click",function(){
+// all.addEventListener("click",function(){
 
-    if(all.checked==true) {
-        for(let i=0;i<cb.length;i++) {
-            cb[i].checked=true;
-        }
-    } 
-    if(all.checked==false) {
-        for(let i=0;i<cb.length;i++) {
-            cb[i].checked=false;
+//     if(all.checked==true) {
+//         for(let i=0;i<cb.length;i++) {
+//             cb[i].checked=true;
+//         }
+//     } 
+//     if(all.checked==false) {
+//         for(let i=0;i<cb.length;i++) {
+//             cb[i].checked=false;
+//         }
+//     }
+// });
+
+for(let i=0;i<cb.length;i++){
+    // cb[i].addEventListener("click", function(){
+    //     check(1); //매개변수가 필요할때
+    // });
+    cb[i].addEventListener("click", check);
+}
+
+function check(){
+    let result = true;
+    for(let i=0;i<cb.length;i++){
+        if(!cb[i].checked){
+            result=false;
+            break;
         }
     }
-});
+    all.checked=result;
+}
