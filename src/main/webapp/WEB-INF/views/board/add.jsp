@@ -38,20 +38,28 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
     <div>
       <textarea class="form-control" id="contents1" placeholder="글내용" name="contents" rows="15" ></textarea>
     </div>
-	 <div class="form-floating">
+	 <!-- <div class="form-floating">
       <input type="file" class="form-control" id="file" placeholder="파일" name="files">
       <label for="floatingfile">파일첨부</label>
     </div>
     <div class="form-floating">
       <input type="file" class="form-control" id="file" placeholder="파일" name="files">
       <label for="floatingfile">파일첨부</label>
-    </div>
+    </div> -->
+
     <div class="form-floating">
       <input type="file" class="form-control" id="file" placeholder="파일" name="files">
       <label for="floatingfile">파일첨부</label>
     </div>
+
+    <div id="addFiles">
+
+      <button class="btn btn-danger m-1" type="button" id="addFilesb">파일 추가</button>
+    </div>
     
     
+
+
     <br>
     <button class="w-100 btn btn-lg btn-primary" type="submit">작성</button>
   </form>
@@ -64,5 +72,6 @@ integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4
 <script type="text/javascript">
 	$("#contents").summernote();
 </script>
+<script src="/resources/js/board.js"></script>
 </body>
 </html>
