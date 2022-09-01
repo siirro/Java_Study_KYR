@@ -50,6 +50,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
     <div class="form-floating">
       <input type="file" class="form-control" id="file" placeholder="파일" name="files">
       <label for="floatingfile">파일첨부</label>
+      <button type="button" class="del">삭제</button>
     </div> -->
 
     <div id="addFiles">
@@ -57,9 +58,6 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
     </div>
     
     
-
-
-    <br>
     <button class="w-100 btn btn-lg btn-primary" type="submit">작성</button>
   </form>
 </section>	
