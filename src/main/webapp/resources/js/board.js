@@ -1,13 +1,21 @@
 const addFiles = document.getElementById('addFiles');
 const addFilesb = document.getElementById('addFilesb');
-
+let count = 0;
 
 addFilesb.addEventListener("click", function(){
+
+	count++;
+	
+	if(count>5) {
+		alert("파일 첨부는 최대 5개만 가능합니다")
+		return;
+	}
+	
 	let d = document.createElement("div");
 	let dch = document.createAttribute("class");
 	dch.value="form-floating";
 	d.setAttributeNode(dch);
-	addFiles.prepend(d)
+	
 
 	let i = document.createElement("input");
 	let it = document.createAttribute("type");
@@ -24,14 +32,16 @@ addFilesb.addEventListener("click", function(){
 	i.setAttributeNode(ina);
 	d.appendChild(i);
 
-	let l = document.createElement("label");
-	let lf = document.createAttribute("for");
-	lf.value = "floatingfile";
-	l.innerText = "파일첨부";
+	let l = document.createElement("label"); 	//<label></label>
+	let lf = document.createAttribute("for"); 	//for=""
+	lf.value = "floatingfile"; 					//for="floatingfile"
+	let lt = document.createTextNode("파일첨부"); //파일첨부
+	l.appendChild(lt);  						//<label>파일첨부</label>
+	//l.innerText = "파일첨부";
 	l.setAttributeNode(lf);
 
 	d.appendChild(l);
 
-
+	addFiles.prepend(d)
 
 });
