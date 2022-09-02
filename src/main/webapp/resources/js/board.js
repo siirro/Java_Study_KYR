@@ -65,7 +65,7 @@ addFilesb.addEventListener("click", function(){
 
 	d.appendChild(b);
 
-	addFiles.prepend(d)
+	addFiles.append(d)
 
 	count++;
 	idx++;
@@ -75,16 +75,17 @@ addFilesb.addEventListener("click", function(){
 });
 
 addFiles.addEventListener("click", function(event){
-	if(event.target.classList[2]=='del'){
-		alert("삭제버튼");
+	let button = event.target;
+	if(button.classList[2]=='del'){
+		document.getElementById("file"+button.title).remove();
+		count--;
+		// alert(button.getAttribute("title"));
+
 		//인풋,라벨,버튼을 전부 삭제해야한다.
 		//remove는 자식포함 전부삭제
-		//removechild는 자식을삭제
-		for(let i=0;i<idx;i++){
-			const id+i = document.getElementById("file"+i);
-			console.log(id[i]);
-			id+i.remove();
-		}
+		//removechild는 내부의 자식들 중 하나를 삭제
+
+	
 	}
 });
 
