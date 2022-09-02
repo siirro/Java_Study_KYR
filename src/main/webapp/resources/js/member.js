@@ -38,10 +38,16 @@ function loginCheck(){
 
 function check(){
     const all = document.getElementById('all');
-    const cb = document.getElementsByClassName('cb');
+    //const cb = document.getElementsByClassName('cb');
+    const cb = document.querySelectorAll('.cb');
     const join = document.getElementById('join');
     const submitform = document.getElementById('submitform')
     const req = document.getElementsByClassName('req');
+
+    console.log("foreach");
+    cb.forEach(function(v, i, ar){
+        console.log(v);
+    })
 
     all.addEventListener("click",function(){
         for(let i=0;i<cb.length;i++) {
