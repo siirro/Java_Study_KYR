@@ -37,7 +37,8 @@ function loginCheck(){
 
 
 function check(){
-    const all = document.getElementById('all');
+    //const all = document.getElementById('all');
+    const all = document.querySelector('#all');
     //const cb = document.getElementsByClassName('cb');
     const cb = document.querySelectorAll('.cb');
     const join = document.getElementById('join');
@@ -48,6 +49,7 @@ function check(){
     cb.forEach(function(v, i, ar){
         console.log(v);
     })
+
 
     all.addEventListener("click",function(){
         for(let i=0;i<cb.length;i++) {
