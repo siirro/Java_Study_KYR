@@ -32,4 +32,4 @@ d4.addEventListener("click",function(){
     console.log("pathName : ",location.pathname);
     console.log("search : ",location.search);
     //location.href="./dom_9.html?a=10";
-}) //url은 uri에 아이피를 포함한주소
+}) //url은 uri에 아이피를 포함한주소d

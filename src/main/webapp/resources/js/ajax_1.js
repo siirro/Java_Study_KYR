@@ -36,7 +36,9 @@ d1.addEventListener("click",function(){
             console.log(response.body);
 
             let hu = document.createElement("h3");
-            hu.innerHTML = response.userId;
+            let hut = document.createTextNode(response.userId)
+            hu.appendChild(hut);
+            //hu.innerHTML = response.userId;
             let hi = document.createElement("h3");
             hi.innerHTML = response.id;
             let ht = document.createElement("h3");
@@ -44,7 +46,7 @@ d1.addEventListener("click",function(){
             let hb = document.createElement("h3");
             hb.innerHTML = response.body;
 
-            result.append(hu);
+            result.appendChild(hu);
             result.append(hi);
             result.append(ht);
             result.append(hb);
