@@ -73,13 +73,26 @@ public class BankMembersController {
 	}
 	
 	@RequestMapping(value="login.iu", method=RequestMethod.POST)
-	public String login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception{
+	public ModelAndView login(HttpServletRequest request, BankMembersDTO bankMembersDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
 		System.out.println("로그인 post실행");
-		bankMembersService.getLogin(bankMembersDTO);
+		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
 		HttpSession session = request.getSession();
 		session.setAttribute("member", bankMembersDTO);
 		
-		return "redirect:../";
+		int result=0;
+		String message="로그인 실패";
+		if(bankMembersDTO!=null) {
+			message="로그인 성공";
+			result=1;
+		}
+		
+		mv.addObject("result", result);
+		mv.addObject("message", message);
+		
+		mv.setViewName("common/result");
+		return mv;
 	}
 	
 	@RequestMapping(value="logout.iu", method=RequestMethod.GET)
