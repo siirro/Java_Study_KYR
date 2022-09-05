@@ -8,8 +8,14 @@
 </head>
 <body>
 <script type="text/javascript">
-	${result}
-	${message}
+	let result = ${result};
+	alert(result);
+	
+	
+	let message = '${message}'; //''가 없으면 변수명으로 인식한다.
+	alert(message);
+	
+	location.href="${url}";
 
 </script>
 

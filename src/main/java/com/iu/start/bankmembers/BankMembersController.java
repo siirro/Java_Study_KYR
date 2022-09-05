@@ -83,14 +83,16 @@ public class BankMembersController {
 		
 		int result=0;
 		String message="로그인 실패";
+		String url = "./login.iu";
 		if(bankMembersDTO!=null) {
 			message="로그인 성공";
 			result=1;
+			url = "../";
 		}
 		
 		mv.addObject("result", result);
 		mv.addObject("message", message);
-		
+		mv.addObject("url", url);
 		mv.setViewName("common/result");
 		return mv;
 	}
