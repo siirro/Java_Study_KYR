@@ -12,6 +12,8 @@
   	
   	
   	<typeAlias type="com.iu.start.bankBook.BankBookDTO" alias="BankBookDTO"/>
+  	<typeAlias type="com.iu.start.bankBook.BankBookCommentDTO" alias="BankBookCommentDTO"/>
+  	
   	<typeAlias type="java.lang.String" alias="String"/>
   	<typeAlias type="java.lang.Long" alias="Long"/>
   	
