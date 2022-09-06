@@ -4,16 +4,16 @@ import com.iu.start.board.impl.CommentDTO;
 
 public class BankBookCommentDTO extends CommentDTO{
 	
-	private Long BookNum;
+	private Long bookNum;
 
 	public Long getBookNum() {
-		return BookNum;
+		return bookNum;
 	}
 
 	public void setBookNum(Long bookNum) {
-		BookNum = bookNum;
+		this.bookNum = bookNum;
 	}
-	
+
 	
 
 }

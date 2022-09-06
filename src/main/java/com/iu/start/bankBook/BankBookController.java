@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,19 @@ public class BankBookController {
  
 	@Autowired
 	private BankBookService bankBookService;
+	//-----------------COMMENT---------------------
+	
+	@PostMapping("commentAdd")
+	public ModelAndView setCommentAdd(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = bankBookService.setAddComment(bankBookCommentDTO);
+		
+		mv.setViewName("bankbook/commentAdd");
+		return mv;
+	}
+	
+	
+	//---------------------------------------------
 	
 	@RequestMapping(value = "list.iu", method = RequestMethod.GET)
 	public String list(Model model) throws Exception {

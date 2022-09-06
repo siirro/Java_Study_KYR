@@ -8,6 +8,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class BankBookService {
 	
+
+	//--------------------COMMENT------------------------
+	@Autowired
+	private BankBookCommentDAO bankBookCommentDAO;
+	
+	public int setAddComment(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+		return bankBookCommentDAO.setAddComment(bankBookCommentDTO);
+	}
+	
+	//---------------------------------------------------
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
