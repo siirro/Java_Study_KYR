@@ -27,6 +27,7 @@
 	<typeAlias type="com.iu.start.board.qna.QnaDTO" alias="QnaDTO"/>
   	
   	<typeAlias type="com.iu.start.util.Pager" alias="Pager"/>
+  	<typeAlias type="com.iu.start.util.CommentPager" alias="CommentPager"/>
   	
   	
   	

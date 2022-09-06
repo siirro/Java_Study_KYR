@@ -6,10 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.iu.start.util.CommentPager;
 
 @Controller
 @RequestMapping(value = "/bankbook/*")
@@ -19,13 +23,50 @@ public class BankBookController {
 	private BankBookService bankBookService;
 	//-----------------COMMENT---------------------
 	
+	//1. JSP에 출력 하고 결과물을 응답으로 전송
+//	@GetMapping("commentList")
+//	public ModelAndView getCommentList(CommentPager commentPager)throws Exception{
+//		
+//		ModelAndView mv = new ModelAndView();
+//		List<BankBookCommentDTO> ar = bankBookService.getCommentList(commentPager);
+//		mv.addObject("commentList", ar);
+//		mv.setViewName("common/commentList");
+//		
+//		System.out.println("CommentList");
+//		System.out.println(ar.size());
+//		return mv;
+//	}
+	
+	//2. jsp X, json으로
+	@GetMapping("commentList")
+	@ResponseBody
+	public List<BankBookCommentDTO> getCommentList(CommentPager commentPager)throws Exception{
+		List<BankBookCommentDTO> ar = bankBookService.getCommentList(commentPager);
+		System.out.println("CommentList");
+		System.out.println(ar.size());
+
+		//json
+		// DTO == {}
+		// num=1 == {"num":1, "bookNum":123, "writer":"NAME1"}
+		//[{}]
+		
+		return ar;
+	}
+	
+	
+	
 	@PostMapping("commentAdd")
-	public ModelAndView setCommentAdd(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+	@ResponseBody()
+	public String setCommentAdd(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+		
 		ModelAndView mv = new ModelAndView();
 		int result = bankBookService.setAddComment(bankBookCommentDTO);
-		
-		mv.setViewName("bankbook/commentAdd");
-		return mv;
+//		mv.addObject("result", result);
+//		
+//		mv.setViewName("common/ajaxResult");
+		//{}
+		String jsonResult = "{\"result\":\""+result+"\"}";
+		return jsonResult;
 	}
 	
 	
