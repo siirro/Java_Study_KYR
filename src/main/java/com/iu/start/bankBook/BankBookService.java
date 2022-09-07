@@ -15,8 +15,18 @@ public class BankBookService {
 	@Autowired
 	private BankBookCommentDAO bankBookCommentDAO;
 	
+	public int setUpdateComment(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+		return bankBookCommentDAO.setUpdateComment(bankBookCommentDTO);
+	}
+	
+	public int setDeleteComment(BankBookCommentDTO bankBookCommentDTO)throws Exception{
+		return bankBookCommentDAO.setDeleteComment(bankBookCommentDTO);
+	}
+	
 	public List<BankBookCommentDTO> getCommentList(CommentPager commentPager)throws Exception{
 		commentPager.getRowNum();
+		Long totalCount = bankBookCommentDAO.getCommentListTotalCount(commentPager);
+		commentPager.makePage(totalCount);
 		return bankBookCommentDAO.getCommentList(commentPager);
 	}
 	

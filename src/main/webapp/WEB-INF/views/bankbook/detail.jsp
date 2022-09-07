@@ -35,7 +35,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 		<a href="/member/join.iu">Join</a>
 	</c:if>
 	
-	
+<div class="col-6 m-3">
 <table border="1" class="table table-primary">
 	<thead>
 		<tr>
@@ -54,9 +54,10 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 		</tr>
 	</tbody>
 </table>
+</div>
 
 <!-- Comment  -->
-<div class="row col-6">
+<div class="row col-6 m-3">
 
 	<div class="mb-3">
 		<label for="writer" class="form-label">USERNAME</label>
@@ -67,16 +68,53 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 		<textarea class="form-control" id="contents" rows="3"></textarea>
 	</div>
 	<div class="mb-3">
-		<button type="button" id="commentAdd" data-book-num="${detail.bookNum}">댓글작성</button>
+		<button class="btn btn-danger" type="button" id="commentAdd" data-book-num="${detail.bookNum}">댓글작성</button>
 	</div>
 </div>
 
 
 <!-- Comment List 출력 -->
-<div id="commentList">
+<div class="col-6 m-3">
+	<table border="1" class="table table-primary" id="commentList">
+
+	</table>
+</div>
+
+<button class="btn btn-primary ml-3" type="button" id="more">더보기</button>
+
+<!-- Comment  -->
+
+<div>
+	<button type="button" style="display: none;" class="btn btn-primary m-3" id="up" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">댓글 수정</button>
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+				<div class="mb-3">
+					<label for="recipient-name" class="col-form-label">writer:</label>
+					<input type="text" class="form-control" id="recipient-name">
+				</div>
+				<div class="mb-3">
+					<label for="message-text" class="col-form-label">Contents:</label>
+					<textarea class="form-control" id="message-text"></textarea>
+				</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Send message</button>
+			</div>
+			</div>
+		</div>
+	</div>
 
 </div>
-<!-- Comment  -->
 
 
 
