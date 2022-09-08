@@ -27,7 +27,7 @@
     <input type="password" name="password" value="PW1" class="form-control" id="password">
     <div id="iderror" class="form-text">아이디를 입력하세요 ★</div>
   </div>
-  <h5 id="h5">로그인오류띄울거임</h5>
+  <h5 id="h5">로그인오류창</h5>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">로그인 유지하기</label>
