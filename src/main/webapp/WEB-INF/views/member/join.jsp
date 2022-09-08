@@ -17,11 +17,14 @@
 	
 	<form action="join.iu" method="post" enctype="multipart/form-data" id="gg">
 	<div>
-		<div class="form-floating col-4 m-1">
-	      <input type="text" class="form-control" id="idid" name="userName">
-	      <div id="iderror" style="color: red; font-size: small;""></div>
-		  <label for="floatingID">ID</label>
+		<div class="form-floating col-4 m-1 row">
+	      	<input type="text" class="form-control" id="idid" name="userName">
+	      	<div id="iderror" style="color: red; font-size: small;"">
+			</div>
+		  	<label for="floatingID">ID</label>
+		  	
     	</div>
+		<button type="button"></button>
         <div class="form-floating col-4 m-1">
 			<input type="password" class="form-control" id="password" name="password">
 			<div id="pwerror" style="color: red; font-size: small;"></div>

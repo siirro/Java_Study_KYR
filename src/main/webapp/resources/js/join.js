@@ -17,8 +17,6 @@ const perror = document.getElementById('perror');
 //메세지를 출력 : ID는 2글자 이상이어햐마
 let result = false;
 
-const idid = document.getElementById('idid');
-const iderror = document.getElementById('iderror');
 
 idid.addEventListener("blur", function(){
     let ididd = idid.value;

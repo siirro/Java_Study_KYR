@@ -35,7 +35,6 @@ function loginCheck(){
     })
 }
 
-
 function check(){
     //const all = document.getElementById('all');
     const all = document.querySelector('#all');
