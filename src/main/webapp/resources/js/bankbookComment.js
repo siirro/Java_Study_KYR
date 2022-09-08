@@ -98,6 +98,8 @@ function getCommentList(p, bn){
             let pager = result.pager;
             let ar = result.list;
 
+            let tbody = document.createElement("tbody");
+
             for(let i=0;i<ar.length;i++){
                 let tr = document.createElement("tr");
                 
@@ -112,7 +114,12 @@ function getCommentList(p, bn){
                 tr.appendChild(td);
 
                 td = document.createElement("td");
+                //날짜 format 변경
+                //let date = new Date(ar[i].regDate)
+                //console.log(date);
+                //tdText = document.createTextNode(date.getFullYear()+"년-"+date.getMonth()+"월-"+date.getDate()+"일");
                 tdText = document.createTextNode(ar[i].regDate);
+
                 td.appendChild(tdText);
                 tr.appendChild(td);
 
@@ -140,7 +147,7 @@ function getCommentList(p, bn){
 
                 
 
-                commentList.append(tr);
+                tbody.append(tr);
 
                 if(page >= pager.totalPage) {
                     more.classList.add("disabled");
@@ -148,6 +155,8 @@ function getCommentList(p, bn){
                 }else {
                     more.classList.remove("disabled");
                 }
+
+                commentList.append(tbody);
 
                 
             }
@@ -201,7 +210,17 @@ commentList.addEventListener("click",function(event){
         // let v = contents.innerHTML;
         // contents.innerHTML="<textarea>"+v+"</textarea>";
 
+        
+        let contents = event.target.previousSibling.previousSibling.previousSibling.innerHTML;
+        let writer = event.target.previousSibling.previousSibling.innerHTML;
+        let num = event.target.getAttribute("data-comment-num");
+
+        document.querySelector("#updateContents").value=contents;
+        document.querySelector("#updateWriter").value=writer;
+        document.querySelector("#num").value=num;
+        
         document.querySelector("#up").click();
+
     }
 
     if(event.target.className=='delete'){
@@ -239,6 +258,44 @@ commentList.addEventListener("click",function(event){
     }
 
     
+});
+
+const updateBtn = document.querySelector("#updateBtn");
+updateBtn.addEventListener("click",function(){
+    // modal에서 num, contents
+
+    
+    let contents = document.querySelector("#updateContents").value;
+    let num = document.querySelector("#num").value;
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST","./commentUpdate");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("num="+num+"&contents="+contents);
+    xhttp.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200) {
+            let result = xhttp.responseText.trim();
+            console.log(result);
+
+            if(result==1){
+                alert("댓글 수정 완료");
+                for(let i=0;i<commentList.children.length;){
+                    commentList.children[0].remove();
+                }
+                page=1;
+                getCommentList(page, bookNum);
+
+            }else{
+                alert("수정 실패");
+            }
+
+            //document.querySelector("#updateClose").click();
+        }
+    }
+
+
+
+
 });
 
 
