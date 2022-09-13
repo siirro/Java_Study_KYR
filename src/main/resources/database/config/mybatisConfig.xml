@@ -9,6 +9,7 @@
 			
   	<typeAlias type="com.iu.start.bankmembers.BankMembersDTO" alias="BankMembersDTO"/>
   	<typeAlias type="com.iu.start.bankmembers.BankMembersFileDTO" alias="BankMembersFileDTO"/>
+  	<typeAlias type="com.iu.start.bankmembers.RoleDTO" alias="RoleDTO"/>
   	
   	
   	<typeAlias type="com.iu.start.bankBook.BankBookDTO" alias="BankBookDTO"/>

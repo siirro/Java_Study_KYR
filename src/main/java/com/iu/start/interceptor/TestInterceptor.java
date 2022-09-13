@@ -15,7 +15,8 @@ public class TestInterceptor extends HandlerInterceptorAdapter{
 		// return이 true면 Controller로 진행
 		// return이 false면 Controller로 진행 x
 		System.out.println("Controller 진입 전 실행");
-		return super.preHandle(request, response, handler);
+		//return super.preHandle(request, response, handler);
+		return true;
 	}
 	
 	@Override

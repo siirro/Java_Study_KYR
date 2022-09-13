@@ -18,6 +18,15 @@
 	<img width=400 height=250 src="../resources/upload/member/${dto.bankMembersFileDTO.fileName}" >
 </div>
 
+<div class="text-center">
+	<c:forEach items="${member.roleDTOs}" var="roleDTO">
+	<div>${roleDTO.roleNum}, ${roleDTO.roleName}</div>
+	</c:forEach>
+	
+	<h1>당신은 ${member.roleDTOs.get(0).roleName}등급입니다</h1>
+	<h1>당신은 ${member.roleDTOs["0"].roleName}등급입니다</h1>
+</div>
+
 <section class="col-6 m-auto mt-3 text-center">
 <table border="1" class="table border-primary">
 		<thead class="table-primary">

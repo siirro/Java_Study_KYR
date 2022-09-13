@@ -8,8 +8,8 @@
 </head>
 <body>
 <script type="text/javascript">
-	let result = ${result};
-	alert(result);
+	//let result = ${result};
+	//alert(result);
 	
 	
 	let message = '${message}'; //''가 없으면 변수명으로 인식한다.

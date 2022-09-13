@@ -24,33 +24,35 @@
 	<!-- Interceptor 설정 -->
 	<!-- Interceptor 객체 생성 -->
 	<beans:bean class="com.iu.start.interceptor.TestInterceptor" id="testInterceptor"></beans:bean>
+	<beans:bean class="com.iu.start.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
+	<beans:bean class="com.iu.start.interceptor.AdminCheckInterceptor" id="adminCheckInterceptor"></beans:bean>
 	
-	<!-- URL - Interceptor 맵핑 -->
+	<!-- URL - Interceptor 맵핑 순서를 지켜야함 -->
 	<interceptors>
+		<interceptor>
+			<mapping path="/notice/**"/>
+			<mapping path="/qna/**"/>
+			<exclude-mapping path="/notice/list.iu"/>
+			<exclude-mapping path="/notice/detail.iu"/>
+			<exclude-mapping path="/qna/list.iu"/>
+			
+			<beans:ref bean="memberInterceptor"/>
+		</interceptor>
 	
+		<interceptor>
+			<mapping path="/notice/**"/>
+			<exclude-mapping path="/notice/list.iu"/>
+			<exclude-mapping path="/notice/detail.iu"/>
+			<beans:ref bean="adminCheckInterceptor"/>
+		</interceptor>
+		
+		<!-- 객체 생성 따로 안하고 이렇게 한번에 작성해도 됨
 		<interceptor>
 			<mapping path="/qna/update.iu"/>
 			<mapping path="/notice/update.iu"/>
 			<beans:bean class="com.iu.start.interceptor.WriterCheckInterceptor" id="writerCheckInterceptor"></beans:bean>
-		</interceptor>
-	
-<!-- 		<interceptor>
-			<mapping path="/qna/*"/>
-			<mapping path="/member/mypage.iu"/>
-			<exclude-mapping path="/qna/list.iu"/>
-			<beans:bean class="com.iu.start.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
 		</interceptor> -->
-		
-		<interceptor>
-			<!-- URL 경로 -->
-			<mapping path="/**"/>
-			<beans:ref bean="testInterceptor"/>
-		</interceptor>
-		
-		
-		
-		
-		
+
 		
 	</interceptors>
 	

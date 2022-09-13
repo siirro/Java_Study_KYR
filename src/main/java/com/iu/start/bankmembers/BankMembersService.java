@@ -56,12 +56,14 @@ public class BankMembersService {
 			String path = "resources/upload/member";
 			
 			String fileName = fileManager.saveFile(servletContext, path, photo);
+			
+			if(!photo.isEmpty()) {
 			BankMembersFileDTO bankMembersFileDTO = new BankMembersFileDTO();
 			bankMembersFileDTO.setFileName(fileName);
 			bankMembersFileDTO.setOriName(photo.getOriginalFilename());
 			bankMembersFileDTO.setUserName(bankMembersDTO.getUserName());
 			bankMembersDAO.setAddFile(bankMembersFileDTO);
-			
+			}
 			
 //		//1. HDD에 파일을 저장
 //		// 파일저장시에 경로는 Tomcat 기준이 아니라 OS의 기준으로 설정
