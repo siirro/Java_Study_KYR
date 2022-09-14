@@ -23,7 +23,7 @@
 	<div>${roleDTO.roleNum}, ${roleDTO.roleName}</div>
 	</c:forEach>
 	
-	<h1>당신은 ${member.roleDTOs.get(0).roleName}등급입니다</h1>
+	<%-- <h1>당신은 ${member.roleDTOs.get(0).roleName}등급입니다</h1> --%>
 	<h1>당신은 ${member.roleDTOs["0"].roleName}등급입니다</h1>
 </div>
 
