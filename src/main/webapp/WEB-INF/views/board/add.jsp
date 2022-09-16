@@ -18,8 +18,6 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-
-</head>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -36,7 +34,7 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
       <label for="floatingPassword">글제목</label>
     </div>
     <div>
-      <textarea class="form-control" id="contents1" placeholder="글내용" name="contents" rows="15" ></textarea>
+      <textarea class="form-control" id="contents" placeholder="글내용" name="contents" rows="15" ></textarea>
     </div>
 	 <!-- <div class="form-floating">
       <input type="file" class="form-control" id="file" placeholder="파일" name="files">
