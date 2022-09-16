@@ -57,6 +57,19 @@ public class QnaService implements BoardService{
 		System.out.println("Insert 전 : "+boardDTO.getNum());
 		int result = qnaDAO.setAdd(boardDTO);
 		System.out.println("Insert 후 : "+boardDTO.getNum());
+		String path = "resources/upload/qna";
+		
+		for(MultipartFile f : files) {
+			if(f.isEmpty()) {
+				continue;
+			}
+			
+			//여기다 filemanager추가
+			
+			
+		}
+		
+		
 		return result;
 	}
 

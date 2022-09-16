@@ -1,7 +1,74 @@
 const addFiles = document.getElementById('addFiles');
 const addFilesb = document.getElementById('addFilesb');
+const fileDelete = document.querySelectorAll(".fileDelete");
+//const fileDelete = document.getElementsByClassName("fileDelete"); //foreach불가능
+
+// --------update시 file Delete
+
+try{
+fileDelete.forEach(function(f){
+	console.log(f);
+	f.addEventListener("click", function(){
+		
+
+
+		let check = window.confirm("삭제하면 되돌릴 수 없음");
+		if(!check){
+			return; //밑에꺼 실행 안하고 바로 펑션종료.
+		}
+
+		console.log("file Delete");
+		// ---이제 파일을 삭제하는 ajax 생성 (비동기)
+		//url, method,
+		let fileNum = f.getAttribute("date-file-num");
+		//ajax 
+		const xhttp = new XMLHttpRequest();
+
+		xhttp.open("POST","./fileDelete");
+
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            
+		xhttp.send("fileNum="+fileNum);
+
+		xhttp.onreadystatechange=function(){
+			if(xhttp.readyState==4&&xhttp.status==200){
+				let result = xhttp.responseText.trim();
+				if(result==1){
+					console.log(result);
+					f.parentNode.remove();
+					count--;
+
+				}else {
+					console.log(result);
+				}
+
+			}
+		}
+
+	});
+});
+
+}catch(e){
+	console.log(e);
+}
+
+// for(fi of fileDelete){
+// 	console.log(fi);
+// }
+
+
+
+// ---------Add시 file add------------------
 let count = 0;
 let idx = 0;
+
+function setCount(c){
+	if(c>=0) {
+		count=c;
+	}
+}
+
+try{
 
 addFilesb.addEventListener("click", function(){
 	
@@ -89,3 +156,6 @@ addFiles.addEventListener("click", function(event){
 	}
 });
 
+}catch(e){
+
+}

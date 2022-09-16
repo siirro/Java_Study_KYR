@@ -10,6 +10,12 @@ public interface BoardDAO {
 	
 	//인터페이스 - public abstract 생략 가능
 	
+	public BoardFileDTO getFileDetail(BoardFileDTO boardFileDTO)throws Exception;
+	
+	public int setFileDelete(BoardFileDTO boardFileDTO)throws Exception;
+	
+	public int setAddFile(BoardFileDTO boardFileDTO)throws Exception;
+	
 	//글목록
 	public List<BoardDTO> getList(Pager pager)throws Exception;
 	
@@ -29,7 +35,6 @@ public interface BoardDAO {
 	public Long getCount(Pager pager)throws Exception;
 	
 	
-	public int setAddFile(BoardFileDTO boardFileDTO)throws Exception;
 	
 	
 }

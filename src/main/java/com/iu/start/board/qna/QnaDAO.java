@@ -19,6 +19,12 @@ public class QnaDAO implements BoardDAO{
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.start.board.qna.QnaDAO.";
 
+	@Override
+	public int setAddFile(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 	public int setReplyAdd(QnaDTO qnaDTO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"setReplyAdd", qnaDTO);
 	}
@@ -62,10 +68,5 @@ public class QnaDAO implements BoardDAO{
 		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
 
-	@Override
-	public int setAddFile(BoardFileDTO boardFileDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
