@@ -40,10 +40,6 @@ rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5
       <input type="file" class="form-control" id="file" placeholder="파일" name="files">
       <label for="floatingfile">파일첨부</label>
     </div>
-    <div class="form-floating">
-      <input type="file" class="form-control" id="file" placeholder="파일" name="files">
-      <label for="floatingfile">파일첨부</label>
-    </div>
 
     <div class="form-floating">
       <input type="file" class="form-control" id="file" placeholder="파일" name="files">
