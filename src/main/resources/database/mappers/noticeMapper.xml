@@ -44,6 +44,7 @@ ORDER BY NUM DESC) N)
 WHERE R BETWEEN #{startRow} AND #{lastRow}
 </select>
 
+
 <select id="getDetail" parameterType="BoardDTO" resultMap="getDetailResult">
 SELECT * 
 FROM NOTICE N
